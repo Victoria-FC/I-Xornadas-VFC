@@ -52,4 +52,102 @@
         }
 
         .btn {
-            dis
+            display: inline-block;
+            background: var(--rojo);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b41f1f;
+        }
+
+        /* Formulario oculto inicialmente */
+        #formulario {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: var(--negro);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #222;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #555;
+        }
+    </style>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById("formulario").style.display = "block";
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1>Charlas del Evento</h1>
+        <p>Aprende, conecta y participa</p>
+    </header>
+
+    <section>
+        <h2>Información del Evento</h2>
+        <p>
+            Describe aquí las charlas, horarios, modalidad y todo lo que necesiten saber los asistentes.
+        </p>
+    </section>
+
+    <section>
+        <h2>Registro</h2>
+        <p>Haz clic en el botón para inscribirte:</p>
+
+        <a class="btn" href="#" onclick="mostrarFormulario()">Abrir Formulario</a>
+
+        <!-- Formulario interno oculto -->
+        <div id="formulario">
+            <h3>Formulario de Registro</h3>
+            <form>
+                <label>Nombre:</label>
+                <input type="text" required>
+
+                <label>Email:</label>
+                <input type="email" required>
+
+                <label>Comentario o intereses:</label>
+                <textarea rows="4"></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 - Tu Evento
+    </footer>
+</body>
+</html>
+
