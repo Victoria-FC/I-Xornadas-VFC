@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Charlas del Evento</title>
+    <title>Evento - Información</title>
 
     <style>
         :root {
             --rojo: #d62828;
             --negro: #111;
-            --gris: #f4f4f4;
+            --gris-claro: #f5f5f5;
         }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: var(--gris);
+            background: var(--gris-claro);
             color: var(--negro);
         }
 
@@ -26,118 +26,83 @@
             text-align: center;
         }
 
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            color: #ddd;
+            font-size: 1.2rem;
+        }
+
         section {
-            max-width: 800px;
-            margin: 2rem auto;
+            max-width: 850px;
+            margin: 2.5rem auto;
             background: white;
-            padding: 2rem;
+            padding: 2.2rem;
             border-radius: 12px;
             border-left: 6px solid var(--rojo);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         h2 {
-            color: var(--rojo);
             margin-top: 0;
+            color: var(--rojo);
         }
 
         .btn {
             display: inline-block;
             background: var(--rojo);
             color: white;
-            padding: 0.8rem 1.4rem;
-            border-radius: 8px;
+            padding: 0.9rem 1.7rem;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            cursor: pointer;
+            font-size: 1.1rem;
             transition: 0.3s;
+            margin-top: 1.5rem;
         }
 
         .btn:hover {
-            background: #b81f1f;
-        }
-
-        #formulario {
-            display: none;
-            margin-top: 1.8rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        button {
-            background: var(--negro);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background: #222;
+            background: #b71f1f;
         }
 
         footer {
             text-align: center;
             padding: 2rem;
             color: #555;
+            margin-top: 3rem;
         }
     </style>
-
-    <script>
-        function mostrarFormulario() {
-            document.getElementById("formulario").style.display = "block";
-            document.getElementById("btnRegistro").style.display = "none";
-        }
-    </script>
 </head>
 
 <body>
 
     <header>
-        <h1>Charlas del Evento</h1>
-        <p>Aprende, conecta y participa</p>
+        <h1>Charlas del Evento 2025</h1>
+        <p>Aprende · Conecta · Inspírate</p>
     </header>
 
     <section>
         <h2>Información del Evento</h2>
+        <p><strong>Descripción:</strong> Un evento diseñado para compartir conocimientos, conectar con otros profesionales y descubrir nuevas oportunidades.</p>
+
+        <p><strong>Fecha:</strong> 14 de Marzo de 2025</p>
+
+        <p><strong>Lugar:</strong> Centro de Conferencias Ciudad del Conocimiento</p>
+
+        <p><strong>Formato:</strong> Presencial con transmisión online incluida</p>
+
         <p>
-            Describe aquí las charlas, horarios, modalidad y toda información relevante.
+            Tendremos charlas de expertos, paneles interactivos y espacios para networking.  
+            ¡Un día completo para aprender, inspirarte y conocer a personas clave en el sector!
         </p>
-    </section>
 
-    <section>
-        <h2>Registro</h2>
-        <p>Haz clic en el botón para inscribirte:</p>
-
-        <div id="btnRegistro" class="btn" onclick="mostrarFormulario()">
-            Abrir Formulario
-        </div>
-
-        <!-- Formulario oculto -->
-        <div id="formulario">
-            <h3>Formulario de Registro</h3>
-
-            <form>
-                <label>Nombre:</label>
-                <input type="text" required />
-
-                <label>Email:</label>
-                <input type="email" required />
-
-                <label>Comentario:</label>
-                <textarea rows="4"></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+        <!-- Botón (en un futuro lo enlazamos al formulario) -->
+        <a class="btn" href="#">Ir al Formulario</a>
     </section>
 
     <footer>
