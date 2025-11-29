@@ -5,125 +5,192 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>I Xornadas: Saúde Mental e Física</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
-  a { text-decoration:none; }
+/* ---------------------- RESET ---------------------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(180deg,#0a0a0a 0%, #2a2a2a 40%, #4a4a4a 100%);
+  color:#eee;
+  line-height:1.6;
+}
+a { text-decoration:none; }
 
-  /* Header hero */
-  header {
-    position: relative;
-    background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat fixed;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-  }
-  header::after {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.5);
-    z-index:0;
-  }
-  header .hero-content { position: relative; z-index:1; max-width: 1000px; margin: 0 auto; }
-  header h1 { font-size:3em; font-weight:700; color:white; margin-bottom:15px; }
-  header p { font-size:1.3em; opacity:0.9; }
+/* ---------------------- HEADER HERO ---------------------- */
+header {
+  position:relative;
+  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60')
+  center/cover no-repeat;
+  color:white;
+  text-align:center;
+  padding:140px 20px;
+}
+header::after {
+  content:"";
+  position:absolute; top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.55);
+  z-index:0;
+}
+.hero-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; }
+header h1 { font-size:3.2em; font-weight:700; color:white; }
+header p { font-size:1.2em; margin-top:10px; opacity:0.95; }
 
-  /* Navegación */
-  nav {
-    display:flex; justify-content:center; flex-wrap:wrap;
-    background:#000; position:sticky; top:0; z-index:10;
-    border-bottom: 3px solid #ff0000;
-  }
-  nav a { color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition: all 0.3s ease; }
-  nav a:hover { color:#ff0000; transform:translateY(-3px); }
+/* ---------------------- NAV ---------------------- */
+nav {
+  display:flex; justify-content:center; flex-wrap:wrap;
+  background:#000;
+  position:sticky; top:0; z-index:20;
+  border-bottom:3px solid #ff0000;
+}
+nav a {
+  color:#fff; margin:5px 20px; padding:12px 0;
+  font-weight:600; transition:0.3s;
+}
+nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
-  /* Hero info cards */
-  .hero-cards {
-    display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:40px 0;
-  }
-  .hero-card {
-    background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
-    border-radius:15px; padding:25px 20px; width:180px; text-align:center;
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
-    display:flex; flex-direction: column; align-items: center;
-    opacity:0; transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-  .hero-card.visible { opacity:1; transform: translateY(0); }
-  .hero-card img { width:50px; height:50px; margin-bottom:10px; filter: invert(1); }
-  .hero-card span { display:block; text-align:center; color:white; font-weight:500; }
-  .hero-card:hover { transform: translateY(-5px) scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
+/* ---------------------- HERO CARDS ---------------------- */
+.hero-cards {
+  display:flex; justify-content:center; gap:30px; flex-wrap:wrap;
+  margin:40px 0;
+}
+.hero-card {
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(8px);
+  border-radius:15px;
+  padding:25px 20px;
+  width:180px;
+  text-align:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  opacity:0; transform:translateY(30px); transition:0.6s ease;
+}
+.hero-card.visible { opacity:1; transform:translateY(0); }
+.hero-card img { width:50px; height:50px; margin-bottom:10px; filter:invert(1); }
+.hero-card span { font-weight:500; display:block; }
 
-  .registro-button {
-    display:inline-block; margin-top:20px; background:#900; color:#fff;
-    padding:18px 40px; border-radius:30px; font-weight:bold; font-size:1.3em;
-    transition: all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.2);
-  }
-  .registro-button:hover { background:#000; box-shadow:0 6px 20px rgba(0,0,0,0.25), 0 0 20px #ff0000; transform:scale(1.05); }
+.hero-card:hover {
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
 
-  /* Secciones uniformes */
-  .container { max-width:1000px; margin:50px auto; padding:0 20px; }
-  .section {
-    background:white; padding:40px 30px; border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08); margin-bottom:40px;
-    opacity:0; transform: translateY(30px); transition: all 0.8s ease-out;
-  }
-  .section.visible { opacity:1; transform: translateY(0); }
-  .section h2 {
-    color:#900; margin-bottom:20px; font-size:1.8em;
-    position:relative; display:inline-block;
-  }
-  .section h2::after {
-    content:""; display:block; width:100%; max-width:200px; height:3px;
-    background:#ff0000; margin-top:6px; border-radius:1px;
-  }
-  .section p, .section ul li { margin-bottom:12px; }
+/* ---------------------- BOTÓN REGISTRO ---------------------- */
+.registro-button {
+  display:inline-block;
+  margin-top:20px;
+  background:#900;
+  color:#fff;
+  padding:18px 40px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:1.3em;
+  transition:0.3s;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+.registro-button:hover {
+  background:#000;
+  box-shadow:0 0 20px #ff0000;
+  transform:scale(1.05);
+}
 
-  /* Logos entidades (sin línea roja) */
-  .partners {
-    display:flex; justify-content:center; gap:30px; flex-wrap:wrap; padding:30px 0; background:#f5f5f5;
-    margin-bottom:20px;
-    opacity:0; transform: translateY(30px); transition: all 0.8s ease-out;
-  }
-  .partners.visible { opacity:1; transform: translateY(0); }
-  .partners img { height:50px; object-fit:contain; transition: transform 0.3s ease; }
-  .partners img:hover { transform: scale(1.05); }
+/* ---------------------- SECCIONES ---------------------- */
+.container { max-width:1000px; margin:50px auto; padding:0 20px; }
+.section {
+  background:white;
+  color:#333;
+  padding:40px 30px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  margin-bottom:40px;
+  opacity:0; transform:translateY(30px); transition:0.8s ease-out;
+}
+.section.visible { opacity:1; transform:translateY(0); }
+.section h2 {
+  color:#900;
+  font-size:1.8em;
+  margin-bottom:20px;
+  position:relative;
+}
+.section h2::after {
+  content:"";
+  display:block;
+  width:100px;
+  height:3px;
+  background:#ff0000;
+  margin-top:6px;
+  border-radius:1px;
+}
 
-  /* Footer */
-  footer {
-    background:#000; color:#fff; padding:40px 20px; border-top:2px solid #ff0000;
-  }
-  .footer-container { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; max-width:1000px; margin:0 auto; gap:20px; }
-  .footer-left .club-logo { width:120px; height:auto; }
-  .footer-right { flex:1; min-width:200px; }
-  .footer-right .contact-info p { margin-bottom:8px; }
-  .footer-right a { color:#fff; text-decoration:none; }
-  .footer-right a:hover { color:#ff0000; }
-  .footer-right .social-icons { margin-top:10px; }
-  .footer-right .social-icons img { width:30px; height:30px; margin-right:10px; vertical-align:middle; transition: transform 0.3s ease; filter: invert(1); }
-  .footer-right .social-icons img:hover { transform:scale(1.1); filter: invert(0.8) drop-shadow(0 0 2px #ff0000); }
+/* ---------------------- PARTNERS ---------------------- */
+.partners {
+  display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
+  padding:40px 0;
+}
+.partners img {
+  height:60px;
+  filter:brightness(1.1);
+  transition:0.3s;
+}
+.partners img:hover { transform:scale(1.1); }
 
-  /* Responsive */
-  @media(max-width:768px){
-    header h1{font-size:2.2em;}
-    header p{font-size:1.1em;}
-    .hero-card{width:140px;padding:20px;}
-    .registro-button{font-size:1.1em;padding:15px 30px;}
-    .partners img{height:40px;}
-  }
-  @media(max-width:480px){
-    header h1{font-size:1.8em;}
-    header p{font-size:1em;}
-    .hero-card{width:120px;padding:15px;}
-    .registro-button{font-size:1em;padding:12px 25px;}
-    .partners img{height:30px;}
-  }
+/* ---------------------- FOOTER ---------------------- */
+footer {
+  background:#000;
+  color:white;
+  padding:40px 20px;
+  border-top:2px solid #ff0000;
+  margin-top:30px;
+}
+.footer-container {
+  display:flex; justify-content:space-between; flex-wrap:wrap;
+  max-width:1000px; margin:0 auto; gap:20px;
+}
+.footer-left img { width:130px; }
+
+.footer-right p { margin-bottom:8px; }
+.footer-right a { color:#fff; }
+.footer-right a:hover { color:#ff0000; }
+
+.social-icons img {
+  width:30px; margin-right:10px;
+  filter:invert(1); /* ICONOS BLANCOS */
+  transition:0.3s;
+}
+.social-icons img:hover { transform:scale(1.15); }
+
+/* ---------------------- BOTÓN VOLVER ARRIBA ---------------------- */
+#topBtn {
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  background:#900;
+  color:white;
+  padding:12px 16px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+  display:none;
+  transition:0.3s;
+  z-index:999;
+}
+#topBtn:hover { background:#ff0000; }
+
+/* ---------------------- RESPONSIVE ---------------------- */
+@media(max-width:768px){
+  header h1 { font-size:2.4em; }
+  .hero-card { width:140px; }
+}
+@media(max-width:480px){
+  header h1 { font-size:1.8em; }
+  .hero-card { width:120px; }
+}
 </style>
+
 </head>
 <body>
 
+<!-- ---------------------- HEADER ---------------------- -->
 <header>
   <div class="hero-content">
     <h1>I Xornadas: Saúde Mental e Física</h1>
@@ -131,15 +198,15 @@
 
     <div class="hero-cards">
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg">
         <span>Santiago de Compostela</span>
       </div>
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg">
         <span>28 de febreiro de 2026</span>
       </div>
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg">
         <span>9:00 - 20:00</span>
       </div>
     </div>
@@ -148,6 +215,7 @@
   </div>
 </header>
 
+<!-- ---------------------- NAV ---------------------- -->
 <nav>
   <a href="#presentacion">Presentación</a>
   <a href="#obxectivos">Obxectivos</a>
@@ -155,7 +223,9 @@
   <a href="#registro">Rexistro</a>
 </nav>
 
+<!-- ---------------------- CONTENIDO ---------------------- -->
 <div class="container">
+
   <section id="presentacion" class="section">
     <h2>Presentación</h2>
     <p>As Xornadas buscan crear un espazo de reflexión e aprendizaxe sobre a importancia da saúde mental e física na vida diaria.</p>
@@ -180,23 +250,24 @@
     <p>Podes inscribirte no seguinte enlace:</p>
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme ás Xornadas</a>
   </section>
+
 </div>
 
-<!-- Logos entidades colaboradoras -->
+<!-- ---------------------- ENTIDADES COLABORADORAS ---------------------- -->
 <div class="partners">
   <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
   <img src="images/xunta.png" alt="Xunta de Galicia">
   <img src="images/logo usc.png" alt="USC">
 </div>
 
+<!-- ---------------------- FOOTER ---------------------- -->
 <footer>
   <div class="footer-container">
-    <!-- Escudo a la izquierda -->
+
     <div class="footer-left">
       <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club">
     </div>
 
-    <!-- Información y redes a la derecha -->
     <div class="footer-right">
       <div class="contact-info">
         <p>Dirección: Rúa Exemplo, 123, Santiago de Compostela</p>
@@ -204,29 +275,39 @@
         <p>Teléfono: +34 123 456 789</p>
       </div>
       <div class="social-icons">
-        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
-        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="Youtube"></a>
-        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png"></a>
+        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png"></a>
+        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png"></a>
       </div>
     </div>
+
   </div>
 </footer>
 
+<!-- ---------------------- BOTÓN VOLVER ARRIBA ---------------------- -->
+<div id="topBtn">↑</div>
+
+<!-- ---------------------- JS ANIMACIONES + BOTÓN TOP ---------------------- -->
 <script>
-  // Animación al hacer scroll
-  const sections = document.querySelectorAll('.section');
-  const heroCards = document.querySelectorAll('.hero-card');
-  const partners = document.querySelector('.partners');
+const sections = document.querySelectorAll('.section');
+const heroCards = document.querySelectorAll('.hero-card');
+const topBtn = document.getElementById("topBtn");
 
-  function checkVisible() {
-    const scrollY = window.pageYOffset + window.innerHeight * 0.8;
-    sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
-    heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
-    if(scrollY > partners.offsetTop) partners.classList.add('visible');
-  }
+function checkVisible() {
+  const scrollY = window.pageYOffset + window.innerHeight * 0.8;
+  sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
+  heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
+}
 
-  window.addEventListener('scroll', checkVisible);
-  window.addEventListener('load', checkVisible);
+window.addEventListener('scroll', () => {
+  checkVisible();
+
+  if (window.scrollY > 400) topBtn.style.display = "block";
+  else topBtn.style.display = "none";
+});
+
+topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('load', checkVisible);
 </script>
 
 </body>
