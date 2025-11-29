@@ -4,54 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>I Xornadas: Saúde Mental e Física</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Roboto',sans-serif; background:#fff; color:#333; line-height:1.6; overflow-x:hidden; }
+  body { font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
+
   a { text-decoration:none; }
 
-  /* Header */
+  /* Header hero */
   header {
-    background: linear-gradient(135deg,#900,#000);
-    color:white; text-align:center; padding:80px 20px 40px; position:relative; overflow:hidden;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat fixed;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+  }
+  header::after {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    z-index:0;
+  }
+  header .hero-content {
+    position: relative;
+    z-index:1;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   header h1 {
-    font-family:'Poppins',sans-serif; font-size:3em; font-weight:700;
-    background: linear-gradient(90deg,#ff4e50,#f9d423);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    animation: gradientMove 5s ease infinite alternate;
-    opacity:0; transform:scale(0.8); animation-fill-mode: forwards;
-    animation-name: heroTitle;
-    animation-duration: 1s;
+    font-size:3em;
+    font-weight:700;
+    color:white;
+    margin-bottom:15px;
   }
   header p {
-    font-size:1.2em; opacity:0; transform:translateY(20px);
-    animation: heroSubtitle 1s ease forwards;
-    animation-delay: 0.5s;
+    font-size:1.3em;
+    opacity:0.9;
   }
-  @keyframes gradientMove { 0%{background-position:0% 0%}100%{background-position:100% 0%} }
-  @keyframes heroTitle { to{opacity:1; transform:scale(1);} }
-  @keyframes heroSubtitle { to{opacity:1; transform:translateY(0);} }
 
   /* Navegación */
   nav {
-    display:flex; justify-content:center; flex-wrap:wrap; background:#000; position:sticky; top:0; z-index:10;
+    display:flex; justify-content:center; flex-wrap:wrap;
+    background:#000; position:sticky; top:0; z-index:10;
   }
   nav a {
     color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition: all 0.3s ease;
   }
-  nav a:hover { color:#ff4e50; transform:translateY(-3px); }
+  nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
-  /* Hero */
-  .hero {
-    position:relative; background:url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
-    color:white; padding:120px 20px 80px; text-align:center; overflow:hidden;
-  }
-  .hero::after {
-    content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:0;
-  }
-  .hero-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; }
-
+  /* Hero info cards */
   .hero-cards {
     display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:40px 0;
   }
@@ -59,62 +62,54 @@
     background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
     border-radius:15px; padding:25px 20px; width:180px; text-align:center;
     box-shadow:0 4px 20px rgba(0,0,0,0.2);
-    transform:translateY(20px) scale(0.95); opacity:0;
-    transition: all 0.5s ease;
   }
-  .hero-card.visible { transform:translateY(0) scale(1); opacity:1; }
-
   .hero-card img { width:50px; height:50px; filter: invert(1); margin-bottom:10px; }
-  .hero-card:hover { transform: translateY(-10px) scale(1.05); box-shadow:0 8px 25px rgba(0,0,0,0.3); }
-
-  /* Botón registro */
   .registro-button {
     display:inline-block; margin-top:20px; background:#900; color:#fff;
     padding:18px 40px; border-radius:30px; font-weight:bold; font-size:1.3em;
     transition: all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.2);
   }
   .registro-button:hover {
-    background:#000; box-shadow:0 6px 20px rgba(0,0,0,0.25), 0 0 20px #ff4e50; transform:scale(1.08);
+    background:#000; box-shadow:0 6px 20px rgba(0,0,0,0.25), 0 0 20px #ff0000;
+    transform:scale(1.05);
   }
 
-  /* Secciones */
-  .container { max-width:1000px; margin:0 auto; padding:0 20px; }
+  /* Secciones uniformes */
+  .container { max-width:1000px; margin:50px auto; padding:0 20px; }
   .section {
-    padding:80px 30px 60px; position:relative;
-    transform: translateY(50px) scale(0.95); opacity:0;
-    transition: all 0.8s ease-out;
-    background-attachment: fixed; background-size: cover; background-position: center;
-    border-radius:12px 12px 0 0;
+    background:white;
+    padding:40px 30px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom:40px;
   }
-  .section.visible { opacity:1; transform:translateY(0) scale(1); }
-
-  .section:nth-child(odd) { background:#f4f4f4; }
-  .section:nth-child(even) { background:#fff; }
-
   .section h2 {
-    font-family:'Poppins',sans-serif; font-size:2em; color:#900; margin-bottom:20px; position:relative;
+    color:#900;
+    margin-bottom:20px;
+    font-size:1.8em;
+    border-bottom:2px solid #900;
+    padding-bottom:6px;
   }
-  .section h2::after {
-    content:''; display:block; width:60px; height:4px; background:#ff4e50; margin-top:5px; border-radius:2px;
-  }
-  .section p, .section ul { margin-top:15px; }
-  .section ul li { margin-bottom:10px; transition: transform 0.3s ease, color 0.3s ease; }
-  .section ul li:hover { transform: translateX(10px); color:#900; }
-
-  /* Ondas */
-  .wave svg { display:block; width:100%; height:80px; }
+  .section p, .section ul li { margin-bottom:12px; }
 
   /* Footer */
-  footer { background:#000; color:#ccc; text-align:center; padding:20px 10px; font-size:0.9em; }
+  footer {
+    background:#000; color:#fff; text-align:center; padding:40px 20px;
+  }
+  footer .contact-info { margin-bottom:20px; }
+  footer .social-icons img { width:30px; height:30px; margin:0 10px; vertical-align:middle; }
+  footer .club-logo { width:60px; margin-top:15px; }
 
   /* Responsive */
   @media(max-width:768px){
     header h1{font-size:2.2em;}
+    header p{font-size:1.1em;}
     .hero-card{width:140px;padding:20px;}
     .registro-button{font-size:1.1em;padding:15px 30px;}
   }
   @media(max-width:480px){
     header h1{font-size:1.8em;}
+    header p{font-size:1em;}
     .hero-card{width:120px;padding:15px;}
     .registro-button{font-size:1em;padding:12px 25px;}
   }
@@ -123,8 +118,18 @@
 <body>
 
 <header>
-  <h1>I Xornadas: Saúde Mental e Física</h1>
-  <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
+  <div class="hero-content">
+    <h1>I Xornadas: Saúde Mental e Física</h1>
+    <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
+
+    <div class="hero-cards">
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar"><span>Santiago de Compostela</span></div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data"><span>28 de febreiro de 2026</span></div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario"><span>9:00 - 20:00</span></div>
+    </div>
+
+    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
+  </div>
 </header>
 
 <nav>
@@ -134,26 +139,11 @@
   <a href="#registro">Rexistro</a>
 </nav>
 
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-cards">
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar"><span>Santiago de Compostela</span></div>
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data"><span>28 de febreiro de 2026</span></div>
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario"><span>9:00 - 20:00</span></div>
-    </div>
-    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
-  </div>
-</div>
-
-<div class="wave"><svg viewBox="0 0 1440 80"><path fill="#fff" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg></div>
-
 <div class="container">
-  <section id="presentacion" class="section" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60');">
+  <section id="presentacion" class="section">
     <h2>Presentación</h2>
     <p>As Xornadas buscan crear un espazo de reflexión e aprendizaxe sobre a importancia da saúde mental e física na vida diaria.</p>
   </section>
-
-  <div class="wave"><svg viewBox="0 0 1440 80"><path fill="#f4f4f4" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg></div>
 
   <section id="obxectivos" class="section">
     <h2>Obxectivos</h2>
@@ -164,14 +154,10 @@
     </ul>
   </section>
 
-  <div class="wave"><svg viewBox="0 0 1440 80"><path fill="#fff" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg></div>
-
-  <section id="ponentes" class="section" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=60');">
+  <section id="ponentes" class="section">
     <h2>Poñentes</h2>
     <p>Contaremos con expertos en psicoloxía, medicina e nutrición que compartirán experiencias e coñecementos.</p>
   </section>
-
-  <div class="wave"><svg viewBox="0 0 1440 80"><path fill="#f4f4f4" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg></div>
 
   <section id="registro" class="section">
     <h2>Rexistro</h2>
@@ -180,33 +166,19 @@
   </section>
 </div>
 
-<footer>© 2026 I Xornadas de Saúde Mental e Física. Todos os dereitos reservados.</footer>
-
-<script>
-  // Scroll animations y parallax
-  const sections = document.querySelectorAll('.section');
-  const heroCards = document.querySelectorAll('.hero-card');
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-    sections.forEach(section => {
-      const offset = section.offsetTop;
-      if(scrollTop + window.innerHeight > offset + 100){
-        section.classList.add('visible');
-      }
-      if(section.style.backgroundImage){
-        section.style.backgroundPosition = `center ${scrollTop*0.3}px`;
-      }
-    });
-
-    // Hero cards appear
-    heroCards.forEach((card,i) => {
-      if(scrollTop + window.innerHeight > card.offsetTop + 50){
-        card.classList.add('visible');
-      }
-    });
-  });
-</script>
+<footer>
+  <div class="contact-info">
+    <p>Contacto: info@clubexemplo.gal | Teléfono: +34 123 456 789</p>
+  </div>
+  <div class="social-icons">
+    <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
+    <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter"></a>
+    <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
+  </div>
+  <div>
+    <img class="club-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Emblem_placeholder.png" alt="Escudo del Club">
+  </div>
+</footer>
 
 </body>
 </html>
