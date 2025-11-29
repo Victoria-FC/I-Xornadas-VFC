@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="gl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I Xornadas: Claves para unha boa saúde mental e física</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Xornadas: Saúde Mental e Física</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Base */
-    body {
+    /* Reset básico */
+    body, h1, h2, h3, p, ul, li, a {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: 'Roboto', sans-serif;
-      background: #f5f5f5;
+      background: #fff;
       color: #333;
       line-height: 1.6;
     }
-    a { text-decoration: none; }
-    
+
     /* Header */
     header {
       background: linear-gradient(135deg, #900, #000);
       color: white;
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 80px 20px 40px;
       position: relative;
       overflow: hidden;
     }
     header h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 3em;
-      margin: 0 0 15px;
       font-weight: 700;
       background: linear-gradient(90deg, #ff4e50, #f9d423);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-size: 200% 100%;
       animation: gradientMove 4s ease infinite alternate;
     }
     header p {
       font-size: 1.2em;
-      margin: 0;
       opacity: 0.9;
+      margin-top: 10px;
     }
     @keyframes gradientMove {
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 0%; }
     }
 
-    /* Nav */
+    /* Navegación */
     nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: #000;
       position: sticky;
       top: 0;
       z-index: 10;
     }
     nav a {
-      color: #900;
-      margin: 5px 15px;
+      color: #fff;
+      margin: 5px 20px;
       padding: 12px 0;
       font-weight: 600;
       transition: all 0.3s ease;
     }
     nav a:hover {
-      color: #000;
+      color: #ff4e50;
       transform: translateY(-3px);
     }
 
@@ -75,25 +75,28 @@
       background: url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
       color: white;
       padding: 120px 20px 80px;
-      overflow: hidden;
+      text-align: center;
     }
     .hero::after {
       content: "";
       position: absolute;
       top:0; left:0;
       width:100%; height:100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.5);
       z-index:0;
     }
-    .hero-glass {
+    .hero-content {
       position: relative;
       z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .hero-cards {
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
-      padding: 20px;
-      backdrop-filter: blur(10px);
+      margin: 40px 0;
     }
     .hero-card {
       background: rgba(255,255,255,0.1);
@@ -116,9 +119,9 @@
     }
     .registro-button {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 20px;
       background: #900;
-      color: white;
+      color: #fff;
       padding: 18px 40px;
       border-radius: 30px;
       font-weight: bold;
@@ -128,44 +131,56 @@
     }
     .registro-button:hover {
       background: #000;
-      transform: scale(1.08);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 20px #ff4e50, 0 0 40px #f9d423;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 15px #ff4e50;
     }
 
-    /* Container & Sections */
+    /* Contenedor y Secciones */
     .container {
       max-width: 1000px;
-      margin: 50px auto;
+      margin: 0 auto;
       padding: 0 20px;
     }
     .section {
-      padding: 40px 30px;
-      border-radius: 12px;
-      margin-bottom: 50px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
+      padding: 60px 30px 40px;
+      border-radius: 12px 12px 0 0;
+      margin-bottom: 0;
       position: relative;
     }
-    .section:nth-child(odd) { background: #fff; }
-    .section:nth-child(even) { background: #fdf6f0; }
+    .section:nth-child(odd) { background: #f4f4f4; }
+    .section:nth-child(even) { background: #fff; }
     .section h2 {
       font-family: 'Poppins', sans-serif;
       font-size: 2em;
-      margin-bottom: 20px;
       color: #900;
+      margin-bottom: 20px;
       position: relative;
     }
     .section h2::after {
       content: '';
-      position: absolute;
-      left:0; bottom:-5px;
-      width: 60px; height: 4px;
+      display: block;
+      width: 60px;
+      height: 4px;
       background: #ff4e50;
+      margin-top: 5px;
       border-radius: 2px;
     }
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
+    .section p, .section ul {
+      margin-top: 15px;
+    }
+    .section ul li {
+      margin-bottom: 10px;
+    }
+
+    /* SVG onda */
+    .wave {
+      display: block;
+      width: 100%;
+      height: 80px;
+    }
+    .wave svg {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     /* Footer */
@@ -181,12 +196,12 @@
     @media (max-width: 768px) {
       header h1 { font-size: 2.2em; }
       .hero-card { width: 140px; padding: 20px; }
-      .registro-button { font-size:1.1em; padding:15px 30px; }
+      .registro-button { font-size: 1.1em; padding: 15px 30px; }
     }
     @media (max-width: 480px) {
       header h1 { font-size: 1.8em; }
       .hero-card { width: 120px; padding: 15px; }
-      .registro-button { font-size:1em; padding:12px 25px; }
+      .registro-button { font-size: 1em; padding: 12px 25px; }
     }
   </style>
 </head>
@@ -205,21 +220,27 @@
   </nav>
 
   <div class="hero">
-    <div class="hero-glass">
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
-        <span>Santiago de Compostela</span>
+    <div class="hero-content">
+      <div class="hero-cards">
+        <div class="hero-card">
+          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
+          <span>Santiago de Compostela</span>
+        </div>
+        <div class="hero-card">
+          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
+          <span>28 de febreiro de 2026</span>
+        </div>
+        <div class="hero-card">
+          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
+          <span>9:00 - 20:00</span>
+        </div>
       </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
-        <span>28 de febreiro de 2026</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
-        <span>9:00 - 20:00</span>
-      </div>
+      <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
     </div>
-    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
+  </div>
+
+  <div class="wave">
+    <svg viewBox="0 0 1440 80"><path fill="#fff" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg>
   </div>
 
   <div class="container">
@@ -227,6 +248,10 @@
       <h2>Presentación</h2>
       <p>As Xornadas buscan crear un espazo de reflexión e aprendizaxe sobre a importancia da saúde mental e física na vida diaria.</p>
     </section>
+
+    <div class="wave">
+      <svg viewBox="0 0 1440 80"><path fill="#f4f4f4" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg>
+    </div>
 
     <section id="obxectivos" class="section">
       <h2>Obxectivos</h2>
@@ -237,10 +262,18 @@
       </ul>
     </section>
 
+    <div class="wave">
+      <svg viewBox="0 0 1440 80"><path fill="#fff" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg>
+    </div>
+
     <section id="ponentes" class="section">
       <h2>Poñentes</h2>
       <p>Contaremos con expertos en psicoloxía, medicina e nutrición que compartirán experiencias e coñecementos.</p>
     </section>
+
+    <div class="wave">
+      <svg viewBox="0 0 1440 80"><path fill="#f4f4f4" d="M0,0 C480,80 960,0 1440,80 L1440,0 L0,0 Z"></path></svg>
+    </div>
 
     <section id="registro" class="section">
       <h2>Rexistro</h2>
