@@ -62,8 +62,17 @@
     background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
     border-radius:15px; padding:25px 20px; width:180px; text-align:center;
     box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    opacity:0; transform: translateY(30px);
+    transition: all 0.6s ease;
   }
+  .hero-card.visible { opacity:1; transform: translateY(0); }
   .hero-card img { width:50px; height:50px; filter: invert(1); margin-bottom:10px; }
+  .hero-card span { display:block; text-align:center; color:white; font-weight:500; }
+  .hero-card:hover { transform: translateY(-5px) scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
+
   .registro-button {
     display:inline-block; margin-top:20px; background:#900; color:#fff;
     padding:18px 40px; border-radius:30px; font-weight:bold; font-size:1.3em;
@@ -82,19 +91,43 @@
     border-radius:12px;
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
     margin-bottom:40px;
+    opacity:0; transform: translateY(30px);
+    transition: all 0.8s ease-out;
   }
+  .section.visible { opacity:1; transform: translateY(0); }
   .section h2 {
     color:#900;
-    margin-bottom:20px;
+    margin-bottom:10px;
     font-size:1.8em;
-    border-bottom:2px solid #900;
-    padding-bottom:6px;
+    position:relative;
+  }
+  .section h2::after {
+    content:"";
+    display:block;
+    width:60px;
+    height:2px;
+    background:#ff0000;
+    margin-top:6px;
+    border-radius:1px;
   }
   .section p, .section ul li { margin-bottom:12px; }
+
+  /* Logos entidades */
+  .partners {
+    display:flex; justify-content:center; gap:30px; flex-wrap:wrap; padding:30px 0; background:#f5f5f5;
+    border-top:2px solid #ff0000;
+    margin-bottom:20px;
+    opacity:0; transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  .partners.visible { opacity:1; transform: translateY(0); }
+  .partners img { height:50px; object-fit:contain; transition: transform 0.3s ease; }
+  .partners img:hover { transform: scale(1.05); }
 
   /* Footer */
   footer {
     background:#000; color:#fff; text-align:center; padding:40px 20px;
+    border-top:2px solid #ff0000;
   }
   footer .contact-info { margin-bottom:20px; }
   footer .social-icons img { width:30px; height:30px; margin:0 10px; vertical-align:middle; }
@@ -106,12 +139,14 @@
     header p{font-size:1.1em;}
     .hero-card{width:140px;padding:20px;}
     .registro-button{font-size:1.1em;padding:15px 30px;}
+    .partners img{height:40px;}
   }
   @media(max-width:480px){
     header h1{font-size:1.8em;}
     header p{font-size:1em;}
     .hero-card{width:120px;padding:15px;}
     .registro-button{font-size:1em;padding:12px 25px;}
+    .partners img{height:30px;}
   }
 </style>
 </head>
@@ -123,9 +158,18 @@
     <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
 
     <div class="hero-cards">
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar"><span>Santiago de Compostela</span></div>
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data"><span>28 de febreiro de 2026</span></div>
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario"><span>9:00 - 20:00</span></div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
+        <span>Santiago de Compostela</span>
+      </div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
+        <span>28 de febreiro de 2026</span>
+      </div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
+        <span>9:00 - 20:00</span>
+      </div>
     </div>
 
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
@@ -166,6 +210,13 @@
   </section>
 </div>
 
+<!-- Logos entidades colaboradoras -->
+<div class="partners">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Concello_de_Santiago_de_Compostela.png" alt="Concello de Santiago">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Xunta_de_Galicia_logo.svg" alt="Xunta de Galicia">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Universidade_de_Santiago_de_Compostela_Logo.svg" alt="USC">
+</div>
+
 <footer>
   <div class="contact-info">
     <p>Contacto: info@clubexemplo.gal | Teléfono: +34 123 456 789</p>
@@ -179,6 +230,28 @@
     <img class="club-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Emblem_placeholder.png" alt="Escudo del Club">
   </div>
 </footer>
+
+<script>
+  // Animación al hacer scroll
+  const sections = document.querySelectorAll('.section');
+  const heroCards = document.querySelectorAll('.hero-card');
+  const partners = document.querySelector('.partners');
+
+  function checkVisible() {
+    const scrollY = window.pageYOffset + window.innerHeight * 0.8;
+
+    sections.forEach(s => {
+      if(scrollY > s.offsetTop) s.classList.add('visible');
+    });
+    heroCards.forEach(c => {
+      if(scrollY > c.offsetTop) c.classList.add('visible');
+    });
+    if(scrollY > partners.offsetTop) partners.classList.add('visible');
+  }
+
+  window.addEventListener('scroll', checkVisible);
+  window.addEventListener('load', checkVisible);
+</script>
 
 </body>
 </html>
