@@ -19,7 +19,7 @@
       color:white;
       padding:120px 20px;
       overflow:hidden;
-      background: url('https://images.unsplash.com/photo-1583454110559-bfe5a126e492?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
     }
     .hero::before, .hero::after {
       content:'';
@@ -28,14 +28,8 @@
       top:-25%; left:-25%;
       z-index:0;
     }
-    .hero::before {
-      transform: rotate(-15deg);
-      background: rgba(150,0,0,0.4);
-    }
-    .hero::after {
-      transform: rotate(15deg);
-      background: rgba(0,0,0,0.3);
-    }
+    .hero::before { transform: rotate(-15deg); background: rgba(150,0,0,0.4); }
+    .hero::after { transform: rotate(15deg); background: rgba(0,0,0,0.3); }
 
     .hero-content { position: relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:40px; }
 
@@ -47,9 +41,7 @@
     .info-item img { width:70px; height:70px; filter:invert(1); transition: transform 0.3s ease; }
     .info-item:hover img { transform: scale(1.2); }
 
-    @keyframes fadeUp {
-      to { opacity:1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { to { opacity:1; transform: translateY(0); } }
 
     .registro-button { display:inline-block; background:#900; color:white; padding:18px 40px; border-radius:5px; text-decoration:none; font-size:1.3em; transition: all 0.3s ease; margin-top:30px; }
     .registro-button:hover { background:#b30000; transform: scale(1.05); }
@@ -59,17 +51,8 @@
     .section h2 { border-bottom:2px solid #900; padding-bottom:8px; margin-bottom:20px; font-size:1.6em; color:#900; }
     footer { background:#000; color:white; text-align:center; padding:20px 10px; }
 
-    @media(max-width:768px){
-      header h1{ font-size:1.8em; }
-      .hero { padding:80px 15px; }
-      .iconos-hero{ gap:25px; }
-      .info-item img{ width:60px; height:60px; }
-    }
-    @media(max-width:480px){
-      .hero { padding:60px 10px; }
-      .info-item img{ width:50px; height:50px; }
-      .registro-button{ font-size:1.1em; padding:15px 30px; }
-    }
+    @media(max-width:768px){ header h1{ font-size:1.8em; } .hero { padding:80px 15px; } .iconos-hero{ gap:25px; } .info-item img{ width:60px; height:60px; } }
+    @media(max-width:480px){ .hero { padding:60px 10px; } .info-item img{ width:50px; height:50px; } .registro-button{ font-size:1.1em; padding:15px 30px; } }
   </style>
 </head>
 <body>
@@ -85,7 +68,7 @@
     <a href="#registro">Rexistro</a>
   </nav>
 
-  <div class="hero">
+  <div class="hero" id="hero">
     <div class="hero-content">
       <div class="iconos-hero">
         <div class="info-item">
@@ -102,6 +85,12 @@
         </div>
       </div>
       <a class="registro-button" href="URL_DE_TU_REXISTRO" target="_blank">Inscribirme ás Xornadas</a>
+    </div>
+    <!-- Botones de cambio de fondo -->
+    <div style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); display:flex; gap:10px;">
+      <button onclick="cambiarFondo(0)" style="padding:5px 10px; border:none; border-radius:3px; cursor:pointer;">1</button>
+      <button onclick="cambiarFondo(1)" style="padding:5px 10px; border:none; border-radius:3px; cursor:pointer;">2</button>
+      <button onclick="cambiarFondo(2)" style="padding:5px 10px; border:none; border-radius:3px; cursor:pointer;">3</button>
     </div>
   </div>
 
@@ -133,6 +122,19 @@
   <footer>
     <p>© 2026 · I Xornadas de Saúde</p>
   </footer>
+
+  <script>
+    const hero = document.getElementById('hero');
+    const fondos = [
+      'https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60',
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=60',
+      'https://images.unsplash.com/photo-1594737625785-6d0e8c6bfa29?auto=format&fit=crop&w=1400&q=60'
+    ];
+
+    function cambiarFondo(index){
+      hero.style.background = `url('${fondos[index]}') center/cover no-repeat`;
+    }
+  </script>
 
 </body>
 </html>
