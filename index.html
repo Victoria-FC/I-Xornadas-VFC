@@ -51,8 +51,9 @@
       background: url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover;
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
       position: relative;
+      overflow: hidden;
     }
     .hero-overlay {
       position:absolute;
@@ -60,8 +61,9 @@
       left:0;
       width:100%;
       height:100%;
-      background:rgba(150,0,0,0.55);
-      backdrop-filter:blur(2px);
+      background: linear-gradient(to bottom, rgba(150,0,0,0.8), rgba(150,0,0,0.55));
+      backdrop-filter:blur(3px);
+      z-index:0;
     }
     .hero-content {
       position:relative;
@@ -70,9 +72,8 @@
       gap:50px;
       flex-wrap:wrap;
       text-align:center;
-      padding:20px 10px;
-      font-size:1.2em;
       align-items:center;
+      z-index:1;
     }
     .info-item {
       display:flex;
@@ -80,6 +81,10 @@
       align-items:center;
       gap:10px;
       transition: transform 0.3s ease;
+      background: rgba(0,0,0,0.25);
+      border-radius: 50%;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
     .info-item img {
       width:60px;
@@ -88,21 +93,20 @@
       transition: transform 0.3s ease;
     }
     .info-item:hover {
-      transform: translateY(-8px);
-    }
-    .info-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
     .registro-button {
+      position: relative;
+      z-index:1;
       display:inline-block;
       background:#900;
       color:white;
-      padding:15px 30px;
+      padding:18px 35px;
       border-radius:5px;
       text-decoration:none;
       font-weight:bold;
-      margin-top:30px;
-      font-size:1.2em;
+      margin-top:40px;
+      font-size:1.3em;
       transition: all 0.3s ease;
     }
     .registro-button:hover {
@@ -135,17 +139,18 @@
     @media (max-width: 768px) {
       header h1 { font-size: 1.8em; }
       header p { font-size: 1em; }
-      .hero { padding: 60px 15px; }
-      .hero-content { gap: 20px; font-size:1em; }
+      .hero { padding: 80px 15px; }
+      .hero-content { gap: 25px; }
+      .info-item { padding: 15px; }
+      .info-item img { width:50px; height:50px; }
       nav a { margin: 5px 10px; padding: 8px 0; font-size: 0.95em; }
       .section h2 { font-size: 1.4em; }
-      .info-item img { width:50px; height:50px; }
+      .registro-button { font-size:1.1em; padding:15px 30px; }
     }
     @media (max-width: 480px) {
-      .hero { padding: 40px 10px; }
-      header h1 { font-size: 1.5em; }
+      .hero { padding: 60px 10px; }
       .info-item img { width:40px; height:40px; }
-      .hero-content { gap:15px; font-size:0.95em; }
+      .hero-content { gap:15px; }
       .registro-button { font-size:1em; padding:12px 25px; }
     }
   </style>
@@ -166,10 +171,6 @@
 
   <div class="hero">
     <div class="hero-overlay"></div>
-
-    <div style="position:relative;margin-bottom:25px;">
-      <h2 style="font-size:2em;font-weight:bold;letter-spacing:1px;">Información do evento</h2>
-    </div>
 
     <div class="hero-content">
       <div class="info-item">
