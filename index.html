@@ -1,50 +1,166 @@
 <!DOCTYPE html>
 <html lang="gl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Xornadas: Saúde mental & física</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Xornadas: Claves para unha boa saúde mental e física</title>
   <style>
-    body { margin:0; padding:0; font-family: Arial, sans-serif; background: #fff; color:#333; line-height:1.6; }
-    header { background: #000; color: white; text-align: center; padding: 40px 20px; }
-    header h1 { font-size: 2.4em; margin: 0 0 10px; }
-    nav { display:flex; justify-content:center; flex-wrap:wrap; background:#900; }
-    nav a { color:white; text-decoration:none; margin:5px 15px; padding:10px 0; font-weight:bold; transition: all 0.3s; }
-    nav a:hover { background:white; color:#900; border-radius:5px; padding:10px 15px; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: 2.4em;
+      margin: 0 0 10px;
+    }
+    header p {
+      font-size: 1.1em;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #900;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 5px 15px;
+      padding: 10px 0;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background: white;
+      color: #900;
+      border-radius: 5px;
+      padding: 10px 15px;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: linear-gradient(to bottom, rgba(150,0,0,0.8), rgba(150,0,0,0.55));
+      backdrop-filter:blur(3px);
+      z-index:0;
+    }
+    .hero-glass {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 20px 10px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      color: white;
+    }
+    .info-item img {
+      width: 60px;
+      height: 60px;
+      filter: invert(1);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .info-item:hover {
+      transform: scale(1.15);
+      color: #ffdddd;
+    }
+    .info-item:hover img {
+      filter: invert(0.9) sepia(0.3) saturate(5) hue-rotate(-10deg);
+    }
+    .registro-button {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      background: #900;
+      color: white;
+      padding: 18px 35px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
+      transition: all 0.3s ease;
+    }
+    .registro-button:hover {
+      background: #b30000;
+      transform: scale(1.05);
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #900;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-size: 1.6em;
+      color: #900;
+    }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
 
-    /* Hero con fondo dinámico y overlay semitransparente */
-    .hero { position: relative; text-align:center; padding:120px 20px; overflow:hidden; }
-    .hero-bg { position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat; z-index:0; }
-    .hero-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(150,0,0,0.4); z-index:1; }
-
-    .hero-content { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:40px; color:white; }
-
-    .iconos-hero { display:flex; flex-wrap:wrap; gap:50px; justify-content:center; }
-    .info-item { display:flex; flex-direction:column; align-items:center; font-size:1.2em; opacity:0; transform: translateY(30px); animation: fadeUp 0.8s forwards; }
-    .info-item:nth-child(1){ animation-delay:0.2s; }
-    .info-item:nth-child(2){ animation-delay:0.4s; }
-    .info-item:nth-child(3){ animation-delay:0.6s; }
-    .info-item img { width:70px; height:70px; filter:none; transition: transform 0.3s ease; }
-    .info-item:hover img { transform: scale(1.2); }
-
-    @keyframes fadeUp { to { opacity:1; transform: translateY(0); } }
-
-    .registro-button { display:inline-block; background:#900; color:white; padding:18px 40px; border-radius:5px; text-decoration:none; font-size:1.3em; transition: all 0.3s ease; margin-top:30px; }
-    .registro-button:hover { background:#b30000; transform: scale(1.05); }
-
-    .container { max-width:900px; margin:40px auto; padding:0 20px; }
-    .section { margin-bottom:40px; }
-    .section h2 { border-bottom:2px solid #900; padding-bottom:8px; margin-bottom:20px; font-size:1.6em; color:#900; }
-    footer { background:#000; color:white; text-align:center; padding:20px 10px; }
-
-    @media(max-width:768px){ header h1{ font-size:1.8em; } .hero { padding:80px 15px; } .iconos-hero{ gap:25px; } .info-item img{ width:60px; height:60px; } }
-    @media(max-width:480px){ .hero { padding:60px 10px; } .info-item img{ width:50px; height:50px; } .registro-button{ font-size:1.1em; padding:15px 30px; } }
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8em; }
+      header p { font-size: 1em; }
+      .hero { padding: 80px 15px; }
+      .hero-glass { gap: 25px; padding:15px; }
+      .info-item img { width:50px; height:50px; }
+      .registro-button { font-size:1.1em; padding:15px 30px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 60px 10px; }
+      .info-item img { width:40px; height:40px; }
+      .hero-glass { gap:15px; }
+      .registro-button { font-size:1em; padding:12px 25px; }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>I Xornadas: Saúde integral</h1>
+    <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
+    <p>blablablalbalbalblablablablablablablablablablabla</p>
   </header>
 
   <nav>
@@ -54,77 +170,53 @@
     <a href="#registro">Rexistro</a>
   </nav>
 
-  <div class="hero" id="hero">
-    <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero">
     <div class="hero-overlay"></div>
 
-    <div class="hero-content">
-      <div class="iconos-hero">
-        <div class="info-item">
-          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
-          <span>Santiago de Compostela</span>
-        </div>
-        <div class="info-item">
-          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
-          <span>28 de febreiro de 2026</span>
-        </div>
-        <div class="info-item">
-          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
-          <span>9:00 - 20:00</span>
-        </div>
+    <div class="hero-glass">
+      <div class="info-item">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
+        <span>Santiago de Compostela</span>
       </div>
-      <a class="registro-button" href="URL_DE_TU_REXISTRO" target="_blank">Inscribirme ás Xornadas</a>
+      <div class="info-item">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
+        <span>28 de febreiro de 2026</span>
+      </div>
+      <div class="info-item">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
+        <span>9:00 - 20:00</span>
+      </div>
     </div>
 
-    <!-- Botones de cambio de fondo -->
-    <div style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); display:flex; gap:10px;">
-      <button onclick="cambiarFondo(0)" style="padding:5px 10px; border:none; border-radius:3px; cursor:pointer;">1</button>
-      <button onclick="cambiarFondo(1)" style="padding:5px 10px; border:none; border-radius:3px; cursor:pointer;">2</button>
-      <button onclick="cambiarFondo(2)" style="padding:5px 10px; border:none; border-radius:3px; cursor:pointer;">3</button>
-    </div>
+    <a class="registro-button" href="#" target="_blank">Inscribirme ás Xornadas</a>
   </div>
 
   <div class="container">
     <section id="presentacion" class="section">
       <h2>Presentación</h2>
-      <p>Estas xornadas nacen coa vontade de ofrecer un espazo de formación, reflexión e encontro ao redor do coidado da saúde física e mental...</p>
+      <p>...</p>
     </section>
 
     <section id="obxectivos" class="section">
       <h2>Obxectivos</h2>
-      <p>- Ofrecer ferramentas prácticas para mellorar a saúde mental e física en contextos deportivos.</p>
-      <p>- Crear un espazo de encontro entre deportistas, familias e profesionais.</p>
-      <p>- Promover hábitos saudables e unha práctica deportiva consciente e segura.</p>
+      <p>...</p>
     </section>
 
     <section id="ponentes" class="section">
       <h2>Poñentes</h2>
-      <p>Aquí poderás engadir a lista completa de especialistas, fotos e descricións breves das súas intervencións.</p>
+      <p>...</p>
     </section>
 
     <section id="registro" class="section">
       <h2>Rexistro</h2>
       <p>Podes inscribirte no seguinte enlace:</p>
-      <a class="registro-button" href="URL_DE_TU_REXISTRO" target="_blank">Inscribirme ás Xornadas</a>
+      <a class="registro-button" href="#" target="_blank">Inscribirme ás Xornadas</a>
     </section>
   </div>
 
   <footer>
     <p>© 2026 · I Xornadas de Saúde</p>
   </footer>
-
-  <script>
-    const heroBg = document.getElementById('hero-bg');
-    const fondos = [
-      'https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=60',
-      'https://images.unsplash.com/photo-1594737625785-6d0e8c6bfa29?auto=format&fit=crop&w=1400&q=60'
-    ];
-
-    function cambiarFondo(index){
-      heroBg.style.background = `url('${fondos[index]}') center/cover no-repeat`;
-    }
-  </script>
 
 </body>
 </html>
