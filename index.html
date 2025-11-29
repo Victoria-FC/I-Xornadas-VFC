@@ -3,220 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I Xornadas: Claves para unha boa saúde mental e física</title>
+  <title>I Xornadas: Saúde mental & física</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #fff;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      font-size: 2.4em;
-      margin: 0 0 10px;
-    }
-    header p {
-      font-size: 1.1em;
-      margin: 0;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #900;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 5px 15px;
-      padding: 10px 0;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      background: white;
-      color: #900;
-      border-radius: 5px;
-      padding: 10px 15px;
-    }
+    body { margin:0; padding:0; font-family: Arial, sans-serif; }
     .hero {
       background: url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover;
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px;
       position: relative;
-      overflow: hidden;
     }
-    .hero-overlay {
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background: linear-gradient(to bottom, rgba(150,0,0,0.8), rgba(150,0,0,0.55));
-      backdrop-filter:blur(3px);
-      z-index:0;
+    .hero::after {
+      content: \"\";
+      position: absolute;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
     }
-    .hero-glass {
+    .hero-content {
       position: relative;
       z-index: 1;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding: 20px 10px;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(6px);
-      border-radius: 15px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .hero-content h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.2em;
       margin-bottom: 30px;
     }
-    .info-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-      color: white;
-    }
-    .info-item img {
-      width: 60px;
-      height: 60px;
-      filter: invert(1);
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .info-item:hover {
-      transform: scale(1.15);
-      color: #ffdddd;
-    }
-    .info-item:hover img {
-      filter: invert(0.9) sepia(0.3) saturate(5) hue-rotate(-10deg);
-    }
-    .registro-button {
-      position: relative;
-      z-index: 1;
+    .btn-main {
       display: inline-block;
       background: #900;
       color: white;
       padding: 18px 35px;
       border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.3em;
-      transition: all 0.3s ease;
+      font-size: 1.2em;
+      margin-bottom: 60px;
     }
-    .registro-button:hover {
-      background: #b30000;
-      transform: scale(1.05);
+    .info-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 60px;
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .section {
-      margin-bottom: 40px;
-    }
-    .section h2 {
-      border-bottom: 2px solid #900;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      font-size: 1.6em;
+    .info-block {
+      flex: 1 1 200px;
       color: #900;
     }
-    footer {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
+    .info-block h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.8em; }
-      header p { font-size: 1em; }
-      .hero { padding: 80px 15px; }
-      .hero-glass { gap: 25px; padding:15px; }
-      .info-item img { width:50px; height:50px; }
-      .registro-button { font-size:1.1em; padding:15px 30px; }
+    .info-block p {
+      font-size: 1em;
+      line-height: 1.4;
     }
-    @media (max-width: 480px) {
-      .hero { padding: 60px 10px; }
-      .info-item img { width:40px; height:40px; }
-      .hero-glass { gap:15px; }
-      .registro-button { font-size:1em; padding:12px 25px; }
+    @media (max-width: 600px) {
+      .hero-content h1 { font-size: 2em; }
+      .info-blocks { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
-    <p>blablablalbalbalblablablablablablablablablablabla</p>
-  </header>
-
-  <nav>
-    <a href="#presentacion">Presentación</a>
-    <a href="#obxectivos">Obxectivos</a>
-    <a href="#ponentes">Poñentes</a>
-    <a href="#registro">Rexistro</a>
-  </nav>
-
   <div class="hero">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-glass">
-      <div class="info-item">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
-        <span>Santiago de Compostela</span>
-      </div>
-      <div class="info-item">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
-        <span>28 de febreiro de 2026</span>
-      </div>
-      <div class="info-item">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
-        <span>9:00 - 20:00</span>
-      </div>
+    <div class="hero-content">
+      <h1>I Xornadas: Saúde integral</h1>
+      <p>Un día dedicado ao coidado da túa saúde física e mental. Santiago de Compostela — 28 feb 2026</p>
+      <a class="btn-main" href="URL_DE_TU_REXISTRO" target="_blank">Inscribirme</a>
     </div>
-
-    <a class="registro-button" href="#" target="_blank">Inscribirme ás Xornadas</a>
   </div>
 
   <div class="container">
-    <section id="presentacion" class="section">
-      <h2>Presentación</h2>
-      <p>...</p>
-    </section>
-
-    <section id="obxectivos" class="section">
-      <h2>Obxectivos</h2>
-      <p>...</p>
-    </section>
-
-    <section id="ponentes" class="section">
-      <h2>Poñentes</h2>
-      <p>...</p>
-    </section>
-
-    <section id="registro" class="section">
-      <h2>Rexistro</h2>
-      <p>Podes inscribirte no seguinte enlace:</p>
-      <a class="registro-button" href="#" target="_blank">Inscribirme ás Xornadas</a>
-    </section>
+    <div class="info-blocks">
+      <div class="info-block">
+        <h3>Formación práctica</h3>
+        <p>Obterás ferramentas aplicables para mellorar o benestar físico e emocional tanto no deporte como na vida diaria.</p>
+      </div>
+      <div class="info-block">
+        <h3>Especialistas en saúde</h3>
+        <p>Charlas de profesionais en nutrición, prevención de lesións, saúde mental e igualdade no deporte.</p>
+      </div>
+      <div class="info-block">
+        <h3>Aberto a todos</h3>
+        <p>Se es deportista, técnico, familiar ou simplemente estás interesado — este espazo é para ti.</p>
+      </div>
+    </div>
   </div>
-
-  <footer>
-    <p>© 2026 · I Xornadas de Saúde</p>
-  </footer>
 
 </body>
 </html>
