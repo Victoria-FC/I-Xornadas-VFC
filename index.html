@@ -61,7 +61,6 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
 /* ---------------------- OBJETIVOS ---------------------- */
-/* ---------------------- OBJETIVOS ---------------------- */
 .section h2 {
   color: #C62828; /* color del título */
   font-size: 1.6em;
@@ -150,12 +149,12 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   flex-direction: column;      /* bloques verticales */
   align-items: flex-start;
   gap: 6px;
-  border-left: none;           /* quitar borde izquierdo */
+  border-left: 4px solid #900; /* borde izquierd para diferenciar */
   border-top: 4px solid #900;  /* borde superior para diferenciar */
   transform: translateY(20px); /* animación inicial */
 }
-.timeline-list.compacto .timeline-event.charla { border-top: 4px solid #c44; }
-.timeline-list.compacto .timeline-event.pausa { border-top: 4px dashed #aaa; }
+.timeline-list.compacto .timeline-event.charla { border-top: 4px solid #c44; border-left: 4px solid #c44;}
+.timeline-list.compacto .timeline-event.pausa { border-top: 4px dashed #aaa; border-left: 4px dashed #aaa;}
 .timeline-list.compacto .timeline-event::before { display: none; } /* quitar círculos */  
 
 /* ---------------------- PARTNERS ---------------------- */
