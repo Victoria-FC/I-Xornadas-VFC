@@ -93,7 +93,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   transform:scale(1.08);
 }
 
-/* ---------------------- SECCIONES GLASSMORPHISM ---------------------- */
+/* ---------------------- SECCIONES ---------------------- */
 .container { max-width:1000px; margin:50px auto; padding:0 20px; }
 .section {
   background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
@@ -125,6 +125,32 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
+/* ---------------------- PONENTES ---------------------- */
+.ponentes-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap:25px;
+  justify-items:center;
+}
+.ponente-card {
+  text-align:center;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
+.ponente-card:hover { transform:scale(1.05); }
+.ponente-photo {
+  width:130px; height:130px;
+  border-radius:50%;
+  border:3px solid #ff0000;
+  overflow:hidden;
+  margin:0 auto 12px;
+  display:flex; align-items:center; justify-content:center;
+}
+.ponente-photo img { width:100%; height:100%; object-fit:cover; }
+.ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
+.ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
+.ponente-card .descripcion { display:none; font-size:0.95em; color:#333; }
+
 /* ---------------------- PARTNERS ---------------------- */
 .partners {
   display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
@@ -152,7 +178,6 @@ footer {
 .footer-left img {
   height:120px;
   border:none;
-  box-shadow:none;
   margin-right:20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -160,11 +185,9 @@ footer {
   transform: scale(1.05);
   box-shadow:0 0 15px rgba(255,255,255,0.9);
 }
-
 .footer-right p { margin-bottom:10px; }
 .footer-right a { color:#fff; transition:0.3s; }
 .footer-right a:hover { color:#ff0000; }
-
 .social-icons img {
   width:32px; margin-right:12px;
   filter:invert(1);
@@ -206,7 +229,7 @@ footer {
 
 <body>
 
-<!-- ---------------------- HEADER ---------------------- -->
+<!-- HEADER -->
 <header>
   <div class="hero-content">
     <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
@@ -231,7 +254,7 @@ footer {
   </div>
 </header>
 
-<!-- ---------------------- NAV ---------------------- -->
+<!-- NAV -->
 <nav>
   <a href="#presentacion">Presentación</a>
   <a href="#obxectivos">Obxectivos</a>
@@ -239,7 +262,7 @@ footer {
   <a href="#registro">Rexistro</a>
 </nav>
 
-<!-- ---------------------- CONTENIDO ---------------------- -->
+<!-- CONTENIDO -->
 <div class="container">
 
   <section id="presentacion" class="section">
@@ -256,9 +279,32 @@ footer {
     </ul>
   </section>
 
+  <!-- PONENTES -->
   <section id="ponentes" class="section">
     <h2>Poñentes</h2>
-    <p>Contaremos con expertos en psicoloxía, medicina e nutrición que compartirán experiencias e coñecementos.</p>
+    <div class="ponentes-grid">
+
+      <!-- Ponente revelado -->
+      <div class="ponente-card" onclick="toggleDescription(this)">
+        <div class="ponente-photo">
+          <img src="images/ines_miras.jpg" alt="Inés Mirás">
+        </div>
+        <h3>Irene Mirás</h3>
+        <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
+        <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición e, principalmente, na nutrición deportiva. Actualmente traballa con deportista de alto nivel e amataeur de diferentes disciplcinas. Tamén e antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
+      </div>
+
+      <!-- Ponentes pendientes -->
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+
+    </div>
   </section>
 
   <section id="registro" class="section">
@@ -269,14 +315,14 @@ footer {
 
 </div>
 
-<!-- ---------------------- ENTIDADES COLABORADORAS ---------------------- -->
+<!-- ENTIDADES COLABORADORAS -->
 <div class="partners">
   <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
   <img src="images/xunta.png" alt="Xunta de Galicia">
   <img src="images/logo usc.png" alt="USC">
 </div>
 
-<!-- ---------------------- FOOTER ---------------------- -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-container">
 
@@ -287,8 +333,8 @@ footer {
 
     <div class="footer-right">
       <div class="contact-info">
-        <p>Dirección: Estadio de San Lázaro Porta 11, 15707, Santiago de Compostela</p>
-        <p>Email: <a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
+        <p>Estadio de San Lázaro Porta 11, 15707, Santiago de Compostela</p>
+        <p><a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
       </div>
       <div class="social-icons">
         <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png"></a>
@@ -300,24 +346,30 @@ footer {
   </div>
 </footer>
 
-<!-- ---------------------- BOTÓN VOLVER ARRIBA ---------------------- -->
+<!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
-<!-- ---------------------- JS ANIMACIONES + BOTÓN TOP ---------------------- -->
+<!-- ---------------------- JS ---------------------- -->
 <script>
 const sections = document.querySelectorAll('.section');
 const heroCards = document.querySelectorAll('.hero-card');
 const topBtn = document.getElementById("topBtn");
 
+// Animación scroll
 function checkVisible() {
   const scrollY = window.pageYOffset + window.innerHeight * 0.8;
   sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
   heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
 }
 
+// Toggle descripción del ponente
+function toggleDescription(card) {
+  const desc = card.querySelector('.descripcion');
+  if(desc) desc.style.display = (desc.style.display === 'block') ? 'none' : 'block';
+}
+
 window.addEventListener('scroll', () => {
   checkVisible();
-
   if (window.scrollY > 400) topBtn.style.display = "block";
   else topBtn.style.display = "none";
 });
