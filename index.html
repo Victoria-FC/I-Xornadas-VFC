@@ -61,9 +61,28 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
 /* ---------------------- OBJETIVOS ---------------------- */
-.objetivos-list { list-style:none; padding:0; margin:0; }
-.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
-.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; }
+.objetivos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objetivos-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  font-size: 1.05em;
+  line-height: 1.5; /* mejora la legibilidad */
+}
+
+.objetivos-list li .icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  /* aplica el mismo color que el título */
+  filter: invert(27%) sepia(97%) saturate(747%) hue-rotate(340deg) brightness(90%) contrast(90%);
+}
 
 /* ---------------------- PROGRAMA (Mejorado) ---------------------- */
 .timeline-buttons { text-align:center; margin-bottom:30px; }
@@ -209,13 +228,29 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 <section id="obxectivos" class="section">
   <h2>Obxectivos</h2>
   <ul class="objetivos-list">
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" alt="">Proporcionar recursos para <b>comprender</b> mellor o <b>funcionamento do corpo e as súas necesidades</b>.</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" alt="">Axudar a <b>xestionar</b> as <b>esixencias físicas e emocionais</b> tanto da práctica deportiva como da vida diaria.</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/settings.svg" alt="">Ofrecer ferramentas que permitan incorporar <b>hábitos saudables</b> e sostibles no tempo.</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="">Sensibilizar sobre a <b>importancia da saúde mental e emocional</b> no rendemento deportivo e no benestar global.</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="">Crear un <b>espazo accesible</b> a persoas de todas as idades e niveis de práctica, favorecendo a inclusión e a aprendizaxe común.</li>
+    <li>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" alt="Libro">
+      Proporcionar recursos para <b>comprender</b> mellor o <b>funcionamento do corpo e as súas necesidades</b>.
+    </li>
+    <li>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" alt="Corazón">
+      Axudar a <b>xestionar</b> as <b>esixencias físicas e emocionais</b> tanto da práctica deportiva como da vida diaria.
+    </li>
+    <li>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/settings.svg" alt="Ferramentas">
+      Ofrecer ferramentas que permitan incorporar <b>hábitos saudables</b> e sostibles no tempo.
+    </li>
+    <li>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Cerebro">
+      Sensibilizar sobre a <b>importancia da saúde mental e emocional</b> no rendemento deportivo e no benestar global.
+    </li>
+    <li>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Persoas">
+      Crear un <b>espazo accesible</b> a persoas de todas as idades e niveis de práctica, favorecendo a inclusión e a aprendizaxe común.
+    </li>
   </ul>
 </section>
+
 
 <!-- PONENTES -->
 <section id="ponentes" class="section">
