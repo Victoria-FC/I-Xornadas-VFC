@@ -151,6 +151,65 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
 .ponente-card .descripcion { display:none; font-size:0.95em; color:#333; }
 
+/* ---------------------- OBJETIVOS ICONOS ---------------------- */
+.objetivos-list { list-style:none; padding:0; margin:0; }
+.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
+.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; filter: invert(0.25) sepia(1) saturate(5) hue-rotate(-10deg); }
+
+/* ---------------------- TIMELINE ---------------------- */
+.timeline-buttons { text-align:center; margin-bottom:30px; }
+.timeline-buttons button {
+  background:#ddd; color:#333; border:none; padding:10px 25px; border-radius:25px; margin:0 10px; cursor:pointer; font-weight:600; transition:0.3s;
+}
+.timeline-buttons button:hover { background:#bbb; }
+.timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
+
+.timeline-list {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 60px;
+  border-left: 4px solid #900;
+}
+
+.timeline-event {
+  position: relative;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.timeline-event::before {
+  content:'';
+  position: absolute;
+  left: -8px; /* centrado sobre la línea de 4px */
+  top: 50%;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* Charlas */
+.timeline-event.charla {
+  background: linear-gradient(135deg, #f8c1c1, #e69090);
+  color:white;
+  font-weight:600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #e69090;
+}
+.timeline-event.charla::before { background: #d45a5a; }
+
+/* Pausas */
+.timeline-event.pausa {
+  background:#f0f0f0;
+  border:1px dashed #900;
+  color:#555;
+  font-weight:400;
+  box-shadow:none;
+}
+.timeline-event.pausa::before { background:#aaa; }
+
+.timeline-event .time { font-weight:600; margin-right:10px; }
+
 /* ---------------------- PARTNERS ---------------------- */
 .partners {
   display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
@@ -224,68 +283,8 @@ footer {
   .hero-card { width:130px; padding:18px 15px; }
   .registro-button { font-size:1.1em; padding:15px 30px; }
 }
-
-/* ---------------------- OBJETIVOS ICONOS ---------------------- */
-.objetivos-list { list-style:none; padding:0; margin:0; }
-.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
-.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; filter: invert(0.25) sepia(1) saturate(5) hue-rotate(-10deg); }
-
-/* ---------------------- TIMELINE ---------------------- */
-.timeline-buttons { text-align:center; margin-bottom:30px; }
-.timeline-buttons button {
-  background:#ddd; color:#333; border:none; padding:10px 25px; border-radius:25px; margin:0 10px; cursor:pointer; font-weight:600; transition:0.3s;
-}
-.timeline-buttons button:hover { background:#bbb; }
-.timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
-
-.timeline-list {
-  position: relative;
-  margin: 30px 0;
-  padding-left: 60px;
-  border-left: 4px solid #900;
-}
-
-.timeline-event {
-  position: relative;
-  margin-bottom: 25px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.timeline-event::before {
-  content:'';
-  position: absolute;
-  left: -8px; 
-  top: 50%;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-/* Charlas */
-.timeline-event.charla {
-  background: linear-gradient(135deg, #f8c1c1, #e69090);
-  color:white;
-  font-weight:600;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border: 1px solid #e69090;
-}
-.timeline-event.charla::before { background: #d45a5a; }
-
-/* Pausas */
-.timeline-event.pausa {
-  background:#f0f0f0;
-  border:1px dashed #900;
-  color:#555;
-  font-weight:400;
-  box-shadow:none;
-}
-.timeline-event.pausa::before { background:#aaa; }
-
-.timeline-event .time { font-weight:600; margin-right:10px; }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -322,13 +321,13 @@ footer {
   <a href="#registro">Rexistro</a>
 </nav>
 
-<!-- CONTENIDO -->
 <div class="container">
 
   <!-- PRESENTACIÓN -->
   <section id="presentacion" class="section">
     <h2>Presentación</h2>
-    <p>Estas xornadas nacen coa vontade de crear un espazo de formación, reflexión e encontro arredor do coidado da saúde física e mental no ámbito deportivo...</p>
+    <p>Estas xornadas nacen coa vontade de crear un espazo de formación, reflexión e encontro arredor do coidado da saúde física e mental no ámbito deportivo. Buscan ofrecer ferramentas sinxelas, prácticas e aplicables ao día a día, tanto dentro como fóra do deporte.</p>
+    <p>A actividade vai dirixida a xogadoras e xogadores, persoal técnico, familias e calquera persoa interesada en aprender como coidar e reforzar o seu benestar físico e emocional. Preténdese fomentar un espazo de aprendizaxe compartida onde deportistas, familias e profesionais poidan intercambiar experiencias e adquirir coñecementos útiles para unha práctica deportiva segura, consciente e saudable.</p>
   </section>
 
   <!-- OBJETIVOS -->
@@ -353,7 +352,6 @@ footer {
         <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
         <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición e, principalmente, na nutrición deportiva. Actualmente traballa con deportista de alto nivel e amateures de diferentes disciplinas. Tamén é antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
       </div>
-      <!-- Ponentes pendientes -->
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     </div>
@@ -371,17 +369,16 @@ footer {
 
     <div id="timeline-mana" class="timeline-list" style="display:none;">
       <div class="timeline-event charla"><span class="time">09:00 - 10:00</span> Charla Inaugural</div>
-      <div class="timeline-event charla"><span class="time">10:00 - 11:00</span> Taller de Nutrición Deportiva</div>
+      <div class="timeline-event charla"><span class="time">10:00 - 11:00</span> Taller Nutrición Deportiva</div>
       <div class="timeline-event pausa"><span class="time">11:00 - 11:30</span> Pausa Café</div>
-      <div class="timeline-event charla"><span class="time">11:30 - 12:30</span> Sesión de Estiramentos</div>
-      <div class="timeline-event pausa"><span class="time">12:30 - 13:00</span> Pausa</div>
+      <div class="timeline-event charla"><span class="time">11:30 - 12:30</span> Mesa Redonda Estrés e Rendemento</div>
     </div>
 
     <div id="timeline-tarde" class="timeline-list" style="display:none;">
-      <div class="timeline-event charla"><span class="time">16:00 - 17:00</span> Sesión de Estiramentos</div>
-      <div class="timeline-event charla"><span class="time">17:00 - 18:00</span> Charla Recuperación Post-Competición</div>
-      <div class="timeline-event pausa"><span class="time">18:00 - 18:30</span> Pausa</div>
-      <div class="timeline-event charla"><span class="time">18:30 - 20:00</span> Mesa Redonda</div>
+      <div class="timeline-event charla"><span class="time">15:00 - 16:00</span> Taller Rehabilitación Física</div>
+      <div class="timeline-event pausa"><span class="time">16:00 - 16:30</span> Pausa Café</div>
+      <div class="timeline-event charla"><span class="time">16:30 - 18:00</span> Charla Recuperación Post-Competición</div>
+      <div class="timeline-event charla"><span class="time">18:00 - 19:00</span> Mesa Redonda Final</div>
     </div>
   </section>
 
