@@ -33,7 +33,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .hero-cards { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:40px 0; }
 .hero-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border-radius:18px; padding:28px 22px; width:180px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.3); opacity:0; transform:translateY(30px); transition:0.6s ease, box-shadow 0.3s ease; }
 .hero-card.visible { opacity:1; transform:translateY(0); }
-.hero-card img { width:50px; height:50px; margin-bottom:12px; }
+.hero-card img { width:50px; height:50px; margin-bottom:12px; filter: brightness(0) invert(1);}
 .hero-card span { font-weight:600; display:block; font-size:1em; }
 .hero-card:hover { transform:translateY(-5px) scale(1.07); box-shadow:0 12px 28px rgba(0,0,0,0.45); }
 
