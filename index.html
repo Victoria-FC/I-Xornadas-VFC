@@ -144,27 +144,35 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .timeline-buttons button:hover { background:#bbb; }
 .timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
 
-.timeline-list { position: relative; margin: 30px 0; padding-left: 40px; border-left: 4px solid #900; }
+.timeline-list {
+  position: relative; 
+  margin: 30px 0; 
+  padding-left: 40px; 
+  border-left: 4px solid #900; 
+}
 .timeline-event {
-  position: relative; margin-bottom: 25px;
-  padding: 10px 20px; border-radius: 8px;
+  position: relative; 
+  margin-bottom: 25px;
+  padding: 10px 20px; 
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .timeline-event::before {
   content: '';
   position: absolute;
-  left: -28px; top: 12px;
+  left: 0; 
+  top: 50%; 
   width: 16px; height: 16px;
-  background: #900;
   border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%); 
 }
 .timeline-event.charla {
-  background: #900;
+  background: #d45a5a; 
   color: white;
   font-weight: 600;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
-.timeline-event.charla::before { background: #ff0000; }
+.timeline-event.charla::before { background: #d45a5a; }
 .timeline-event.pausa {
   background: #f0f0f0;
   border: 1px dashed #900;
@@ -201,7 +209,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   .hero-card { width:150px; padding:25px 20px; }
   .registro-button { font-size:1.2em; padding:18px 35px; }
   .timeline-list { padding-left:20px; }
-  .timeline-event::before { left: -20px; top:12px; }
+  .timeline-event::before { left:0; }
 }
 @media(max-width:480px){
   header h1 { font-size:2em; }
@@ -256,16 +264,25 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
     </ul>
   </section>
 
-  <!-- PONENTES -->
+    <!-- PONENTES -->
   <section id="ponentes" class="section">
     <h2>Poñentes</h2>
     <div class="ponentes-grid">
+      <!-- Ponente confirmado -->
       <div class="ponente-card" onclick="toggleDescription(this)">
-        <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás"></div>
+        <div class="ponente-photo">
+          <img src="images/ines_miras.jpeg" alt="Inés Mirás">
+        </div>
         <h3>Irene Mirás</h3>
         <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
-        <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición deportiva. Actualmente traballa con deportista de alto nivel e amateures de diferentes disciplinas. Tamén é antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
+        <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición e, principalmente, na nutrición deportiva. Actualmente traballa con deportista de alto nivel e amateures de diferentes disciplinas. Tamén é antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
       </div>
+
+      <!-- Ponentes pendientes -->
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
@@ -275,19 +292,22 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   <!-- PROGRAMA -->
   <section id="programa" class="section">
     <h2>Programa</h2>
-    <p>Selecciona a franja horaria para ver o detalle das actividades:</p>
+    <p>Explora as actividades do día elixindo mañá ou tarde:</p>
     <div class="timeline-buttons">
       <button onclick="showTimeline('mana')">Mañá</button>
       <button onclick="showTimeline('tarde')">Tarde</button>
     </div>
+
+    <!-- Timeline Mañá -->
     <div id="timeline-mana" class="timeline-list" style="display:none;">
-      <div class="timeline-event charla"><span class="time">09:00 - 09:30</span> Recepción</div>
-      <div class="timeline-event charla"><span class="time">09:30 - 10:30</span> Charla Nutrición Deportiva</div>
-      <div class="timeline-event pausa"><span class="time">10:30 - 11:00</span> Pausa Café</div>
-      <div class="timeline-event charla"><span class="time">11:00 - 12:00</span> Taller Mindfulness</div>
-      <div class="timeline-event charla"><span class="time">12:00 - 13:00</span> Sesión de Estiramentos</div>
-      <div class="timeline-event pausa"><span class="time">13:00 - 13:30</span> Pausa</div>
+      <div class="timeline-event charla"><span class="time">09:00 - 10:00</span> Charla Inaugural</div>
+      <div class="timeline-event charla"><span class="time">10:00 - 11:00</span> Taller de Nutrición Deportiva</div>
+      <div class="timeline-event pausa"><span class="time">11:00 - 11:30</span> Pausa Café</div>
+      <div class="timeline-event charla"><span class="time">11:30 - 12:30</span> Sesión de Estiramentos</div>
+      <div class="timeline-event pausa"><span class="time">12:30 - 13:00</span> Pausa</div>
     </div>
+
+    <!-- Timeline Tarde -->
     <div id="timeline-tarde" class="timeline-list" style="display:none;">
       <div class="timeline-event charla"><span class="time">16:00 - 17:00</span> Sesión de Estiramentos</div>
       <div class="timeline-event charla"><span class="time">17:00 - 18:00</span> Charla Recuperación Post-Competición</div>
@@ -303,12 +323,13 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
   </section>
 
-  <!-- PARTNERS -->
-  <section class="section partners">
-    <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
-    <img src="images/xunta.png" alt="Xunta de Galicia">
-    <img src="images/logo usc.png" alt="USC">
-  </section>
+</div>
+
+<!-- PARTNERS -->
+<div class="partners">
+  <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
+  <img src="images/xunta.png" alt="Xunta de Galicia">
+  <img src="images/logo usc.png" alt="USC">
 </div>
 
 <!-- FOOTER -->
@@ -332,7 +353,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   </div>
 </footer>
 
-<!-- BOTÓN ARRIBA -->
+<!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
 <script>
