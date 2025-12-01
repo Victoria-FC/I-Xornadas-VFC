@@ -61,6 +61,18 @@ nav a:hover { color:#900; transform:translateY(-3px); }
 .descripcion { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
+/* ---------------- MULTI-FOTO ---------------- */
+.multi-photo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.multi-photo .ponente-photo {
+  width:110px;
+  height:110px;
+}
+  
 /* ---------- ESTILO PARA PONENTES OCULTOS ---------- */
 
 .ponente-card.oculto > *:not(.placeholder) {
@@ -339,7 +351,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
   <h2>Poñentes</h2>
   <div class="ponentes-grid">
     
-    <!-- PONENTE VISIBLE -->
+    <!-- IRENE MIRAS -->
     <div class="ponente-card" onclick="toggleDescription(this)">
       <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy"></div>
       <h3>Irene Mirás</h3>
@@ -347,12 +359,12 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       <p class="descripcion">Foi deportista de alto nivel en piragüismo donde comezou a súa vocación pola nutrición e, en especial, a nutrición deportiva. Actualmente traballa con deportistas de alto nivel e amateur de diferentes disciplinas. É, tamén, antropometrista ISAK II e conta con Máster en suplementación deportiva.</p>
     </div>
 
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
+    <!-- PLACIDO MAYAN -->
     <div class="ponente-card">
       <div class="ponente-photo">
         <img src="images/placido_mayan.jpeg" alt="Nombre real" loading="lazy">
       </div>
-      <h3>Plácido Mayán</h3>
+      <h3>Plácido Mayán Conesa</h3>
       <p class="cargo">Coordinador do Servizo de Urxencias no Hospital Clínico de Santiago de Compostela</p>
       <p class="descripcion">Médico especialista en Medicina de Urxexncias. Profesor asociado da Universidade de Santiago de Compostela.</p>
 
@@ -366,13 +378,51 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </div>
     </div>
 
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
-    <div class="ponente-card oculto">
+    <!-- IRIA MIGUENS -->
+    <div class="ponente-card">
       <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
+        <img src="images/iria_miguens.jpeg" alt="Nombre real" loading="lazy">
       </div>
-      <h3>Nombre real</h3>
-      <p class="cargo">Cargo real</p>
+      <h3>Iria Miguéns Blanco</h3>
+      <p class="cargo">Especialista en Medicina de Urxencias e Emerxencias</p>
+      <p class="descripcion">Responsable da secretaría de MUYEres na Sociedad Española de Medicina de Urgencias y Emergencias. Doutora en Medicina pola Universidade Autónoma de Madrid, 2024.Máster en Medicina de Urxencias e Emerxencias pola Universidade Complutense, 2016.Máster en Dereito Sanitario e Bioética pola Universidade de Castela a Mancha, 2012.</p>
+
+      <!-- VERSIÓN PLACEHOLDER -->
+      <div class="placeholder">
+        <div class="ponente-photo">
+          <img src="images/interrogante.png" alt="Pendiente">
+        </div>
+        <h3>Pendiente de revelar</h3>
+        <p class="cargo">Próximamente</p>
+      </div>
+    </div>
+
+    <!-- CARLOS LAGO -->
+    <div class="ponente-card">
+      <div class="ponente-photo">
+        <img src="images/carlos_lago.jpeg" alt="Nombre real" loading="lazy">
+      </div>
+      <h3>Carlos Lago Peñas</h3>
+      <p class="cargo">Catedrático na Facultade de Ciencias da Educación e do Deporte da Universidade de Vigo</p>
+      <p class="descripcion">É autor de numerosos libros e publicacións en revistas internacionais sobre fútbol e deportes de equipo. Participa como docente en distintos Mestrados e Cursos de Especialización en entrenamento deportivo. Exerceu como asesor e analista en diversos clubes profesionais. Colaborador habitual de distintos medios de comunicación. Actualmente colabora con LaLiga e el Barça Innovation Hub. Está incluído na lista do 2% dos científicos máis citados do mundo na área de Ciencias do Deporte, the World's Top 2% Scientists. Ademais, é o investigador máis citado en Ciencias do Deporte en España. Director do Instituto de Investigación en Ciencias do Deporte da Universidade de Vigo.</p>
+
+      <!-- VERSIÓN PLACEHOLDER -->
+      <div class="placeholder">
+        <div class="ponente-photo">
+          <img src="images/interrogante.png" alt="Pendiente">
+        </div>
+        <h3>Pendiente de revelar</h3>
+        <p class="cargo">Próximamente</p>
+      </div>
+    </div>
+
+    <!-- ROSA CERQUEIRO -->
+    <div class="ponente-card">
+      <div class="ponente-photo">
+        <img src="images/rosa_cerqueiro.jpeg" alt="Nombre real" loading="lazy">
+      </div>
+      <h3>Rosa Cerqueiro Landín</h3>
+      <p class="cargo">Psicóloga clínica no Hospital Psiquiátrico de Conxo</p>
       <p class="descripcion">Descripción real</p>
 
       <!-- VERSIÓN PLACEHOLDER -->
@@ -385,13 +435,32 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </div>
     </div>
 
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
-    <div class="ponente-card oculto">
+    <!-- LAURA SAYAGUES -->
+    <div class="ponente-card ">
       <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
+        <img src="images/interrogante.png" alt="Nombre real" loading="lazy">
       </div>
-      <h3>Nombre real</h3>
-      <p class="cargo">Cargo real</p>
+      <h3>Laura Sayuagués Moreira</h3>
+      <p class="cargo">Médico Intensivista do Hospital Clínico Universitario de Santiago de Compostela (CHUS)</p>
+      <p class="descripcion">Especialista que trata a pacientes en estado crítico ou grave na unidade de cuidados intesivos. Vicecoordinadora autonómica do PNRCP. Doutora pola Universidade de Santiago de Compostela.</p>
+
+      <!-- VERSIÓN PLACEHOLDER -->
+      <div class="placeholder">
+        <div class="ponente-photo">
+          <img src="images/interrogante.png" alt="Pendiente">
+        </div>
+        <h3>Pendiente de revelar</h3>
+        <p class="cargo">Próximamente</p>
+      </div>
+    </div>
+
+    <!-- JESUS MARQUE -->
+    <div class="ponente-card">
+      <div class="ponente-photo">
+        <img src="images/jesus_marque.jpeg" alt="Nombre real" loading="lazy">
+      </div>
+      <h3>Jesus Marque</h3>
+      <p class="cargo">Médico do Deporte. Xefe dos servizos médicos do Obradoiro CAB</p>
       <p class="descripcion">Descripción real</p>
 
       <!-- VERSIÓN PLACEHOLDER -->
@@ -404,14 +473,20 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </div>
     </div>
 
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
-    <div class="ponente-card oculto">
-      <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
-      </div>
-      <h3>Nombre real</h3>
-      <p class="cargo">Cargo real</p>
-      <p class="descripcion">Descripción real</p>
+    <!-- LIDIA E RAQUEL -->
+    <div class="ponente-card">
+      <div class="real-content">
+        <div class="multi-photo">
+          <div class="ponente-photo">
+            <img src="images/lidia.png" alt="Lidia Babarro" loading="lazy">
+          </div>
+          <div class="ponente-photo">
+            <img src="images/raquel.png" alt="Raquel Duro" loading="lazy">
+          </div>
+        </div>
+      <h3>Lidia Babarro e Raquel Duro</h3>
+      <p class="cargo">Graduadas en Fisioterapia pola Universidade da Coruña</p>
+      <p class="descripcion">Ambas manteñen unha forte vinculación co ámbito deportivo. Raquel destaca pola súa traxectoria como xogadora de fútbol e, tamén como adestradora. Lidia foi ximnasta a nivel nacional e, actualmente, exerce como xuiza de atletismo e ximnasia rítmica. Xuntas unen a experiencia clínica e deportiva para ofrecer unha visión integral da fisioterapia aplicada ao deporte.</p>
 
       <!-- VERSIÓN PLACEHOLDER -->
       <div class="placeholder">
@@ -423,64 +498,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </div>
     </div>
 
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
-    <div class="ponente-card oculto">
-      <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
-      </div>
-      <h3>Nombre real</h3>
-      <p class="cargo">Cargo real</p>
-      <p class="descripcion">Descripción real</p>
-
-      <!-- VERSIÓN PLACEHOLDER -->
-      <div class="placeholder">
-        <div class="ponente-photo">
-          <img src="images/interrogante.png" alt="Pendiente">
-        </div>
-        <h3>Pendiente de revelar</h3>
-        <p class="cargo">Próximamente</p>
-      </div>
-    </div>
-
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
-    <div class="ponente-card oculto">
-      <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
-      </div>
-      <h3>Nombre real</h3>
-      <p class="cargo">Cargo real</p>
-      <p class="descripcion">Descripción real</p>
-
-      <!-- VERSIÓN PLACEHOLDER -->
-      <div class="placeholder">
-        <div class="ponente-photo">
-          <img src="images/interrogante.png" alt="Pendiente">
-        </div>
-        <h3>Pendiente de revelar</h3>
-        <p class="cargo">Próximamente</p>
-      </div>
-    </div>
-
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
-    <div class="ponente-card oculto">
-      <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
-      </div>
-      <h3>Nombre real</h3>
-      <p class="cargo">Cargo real</p>
-      <p class="descripcion">Descripción real</p>
-
-      <!-- VERSIÓN PLACEHOLDER -->
-      <div class="placeholder">
-        <div class="ponente-photo">
-          <img src="images/interrogante.png" alt="Pendiente">
-        </div>
-        <h3>Pendiente de revelar</h3>
-        <p class="cargo">Próximamente</p>
-      </div>
-    </div>
-
-    <!-- PONENTE OCULTO (se muestra como interrogante) -->
+    <!-- PONENTE 9 -->
     <div class="ponente-card oculto">
       <div class="ponente-photo">
         <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
