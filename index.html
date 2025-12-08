@@ -35,12 +35,19 @@ a { text-decoration:none; }
   display: block;
 }
 
+.top-banner-small .banner-aniversario {
+  height: 45px; /* tamaño proporcional al escudo */
+  width: auto;
+  display: block;
+}  
+
 /* ---------------------- HEADER HERO ---------------------- */
 header {
   position:relative;
   /* background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat; */
   background: url('images/portada.jpeg') center/cover no-repeat;
-  color:white; text-align:center; padding:140px 20px;
+  color:white; text-align:center; padding:120px 20px;
+  /*padding: 80px 20px; /* reduce el tamaño vertical */
   box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
 }
 header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.25); z-index:0; }
@@ -299,10 +306,9 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 </head>
 <body>
 
-<!-- BANNER SUPERIOR PEQUEÑO (negro) -->
 <div class="top-banner-small">
     <img src="images/escudo_blanco.png" alt="Escudo" class="banner-escudo">
-    <!--<img src="images/logo_blanco.png" alt="10º Aniversario" class="logo-aniversario">-->
+    <img src="images/logo_blanco.png" alt="10º Aniversario" class="banner-aniversario">
     <span>Victoria Fútbol Club</span>
 </div> 
 
