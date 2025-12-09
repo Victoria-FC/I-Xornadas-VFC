@@ -306,6 +306,99 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
   .hero-card { width:130px; padding:18px 15px; }
   .registro-button { font-size:1.1em; padding:15px 30px; }
 }
+
+/* Botón flotante */
+#help-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background-color: #860A35;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+#help-btn:hover {
+    background-color: #A50D42;
+}
+
+/* Popup fondo */
+#contact-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#contact-popup.hidden {
+    display: none;
+}
+
+/* Contido do popup */
+.popup-content {
+    background: white;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Botón pechar */
+#close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Formulario */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: #860A35;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #A50D42;
+}
+  
 </style>
 </head>
 <body>
@@ -758,6 +851,30 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 <!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn" aria-label="Volver arriba">↑</div>
 
+<!-- BOTÓN DE AXUDA -->
+<div id="help-btn">?</div>
+
+<!-- POPUP DE CONTACTO -->
+<div id="contact-popup" class="hidden">
+  <div class="popup-content">
+    <span id="close-popup">&times;</span>
+    <h2>¿Necesitas axuda?</h2>
+
+    <form action="https://formspree.io/f/tu_codigo_aqui" method="POST" class="contact-form">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mensaxe</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>  
+
 <!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
   <div class="modal-content">
@@ -848,6 +965,29 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
 
 btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
 btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
+
+// Botón de axuda
+const helpBtn = document.getElementById("help-btn");
+const contactPopup = document.getElementById("contact-popup");
+const closePopup = document.getElementById("close-popup");
+
+// Abrir popup
+helpBtn.addEventListener("click", () => {
+    contactPopup.classList.remove("hidden");
+});
+
+// Pechar popup
+closePopup.addEventListener("click", () => {
+    contactPopup.classList.add("hidden");
+});
+
+// Pechar facendo clic fora
+contactPopup.addEventListener("click", (e) => {
+    if (e.target === contactPopup) {
+        contactPopup.classList.add("hidden");
+    }
+});  
+  
 </script>
 
 </body>
