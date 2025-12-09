@@ -966,27 +966,31 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
 btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
 btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
 
-// Botón de axuda
-const helpBtn = document.getElementById("help-btn");
-const contactPopup = document.getElementById("contact-popup");
-const closePopup = document.getElementById("close-popup");
+const helpBtn = document.getElementById('help-btn');
+  const helpPopup = document.getElementById('help-popup');
+  const closePopupBtn = document.getElementById('close-popup');
+  const helpForm = document.getElementById('help-form');
 
-// Abrir popup
-helpBtn.addEventListener("click", () => {
-    contactPopup.classList.remove("hidden");
-});
+  // Abrir popup
+  helpBtn.addEventListener('click', () => {
+    helpPopup.classList.remove('hidden');
+    document.body.classList.add('popup-active');
+  });
 
-// Pechar popup
-closePopup.addEventListener("click", () => {
-    contactPopup.classList.add("hidden");
-});
+  // Cerrar popup
+  closePopupBtn.addEventListener('click', () => {
+    helpPopup.classList.add('hidden');
+    document.body.classList.remove('popup-active');
+  });
 
-// Pechar facendo clic fora
-contactPopup.addEventListener("click", (e) => {
-    if (e.target === contactPopup) {
-        contactPopup.classList.add("hidden");
-    }
-});  
+  // Enviar formulario
+  helpForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // evita recargar la página
+    alert('Formulario enviado correctamente');
+    helpPopup.classList.add('hidden');
+    document.body.classList.remove('popup-active');
+    helpForm.reset(); // limpia los campos
+  });
   
 </script>
 
