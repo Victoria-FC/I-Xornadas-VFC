@@ -307,126 +307,22 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
   .registro-button { font-size:1.1em; padding:15px 30px; }
 }
 
-/* Botón flotante */
-#help-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 55px;
-    height: 55px;
-    background-color: #900;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* POPUP FONDO */
-#help-popup {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;           /* Invisible por defecto */
-  visibility: hidden;    /* Oculto por defecto */
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 1000;
-}
-
-/* POPUP VISÍBEL */
-#help-popup.active {
-  opacity: 1;            /* Visible cando se engade a clase active */
-  visibility: visible;
-}
-
-/* CONTIDO DO POPUP */
-.popup-content {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  transform: scale(0.9);          /* Pequeno efecto de zoom inicial */
-  transition: transform 0.3s ease;
-}
-
-/* Efecto de zoom cando está activo */
-#help-popup.active .popup-content {
-  transform: scale(1);
-}
-
-/* BOTON CERRAR */
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  color: #333;
-}
-
-/* TITULO */
-.popup-title {
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: #111;
-}
-
-/* GRUPO DE FORMULARIO */
-.form-group {
-  margin-bottom: 16px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 500;
-  color: #222;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  box-sizing: border-box;
-  transition: border 0.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #4CAF50; /* cor principal dos poñentes */
-  outline: none;
-}
-
-/* BOTON ENVIAR */
-.submit-btn {
-  background: #900; /* cor principal */
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.submit-btn:hover {
-  background: #45a049;
-}
+/* Botón flotante */ 
+  #help-btn { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background-color: #900; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); } 
+  /* POPUP FONDO */ 
+  #help-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; opacity: 0; /* Invisible por defecto */ visibility: hidden; /* Oculto por defecto */ transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 1000; } 
+  /* POPUP VISÍBEL */ 
+  #help-popup.active { opacity: 1; /* Visible cando se engade a clase active */ visibility: visible; } 
+  /* CONTIDO DO POPUP */ 
+  .popup-content { background: #fff; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px; transform: scale(0.9); /* Pequeno efecto de zoom inicial */ transition: transform 0.3s ease; } /* Efecto de zoom cando está activo */ #help-popup.active .popup-content { transform: scale(1); } 
+  /* BOTON CERRAR */ 
+  .close-btn { position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 22px; cursor: pointer; color: #333; } 
+  /* TITULO */ 
+  .popup-title { font-size: 20px; margin-bottom: 20px; font-weight: 600; color: #111; } 
+  /* GRUPO DE FORMULARIO */ 
+  .form-group { margin-bottom: 16px; } .form-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #222; } .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; box-sizing: border-box; transition: border 0.2s; } .form-group input:focus, .form-group textarea:focus { border-color: #4CAF50; /* cor principal dos poñentes */ outline: none; } 
+  /* BOTON ENVIAR */ 
+  .submit-btn { background: #900; /* cor principal */ color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: background 0.2s; } .submit-btn:hover { background: #45a049; }
 
   
 </style>
