@@ -819,16 +819,15 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 <div id="help-btn">?</div>
 
 <!-- POPUP AXUDA -->
-<div id="help-popup">
+<div id="help-popup" class="hidden">
   <div class="popup-content">
     <button id="close-help-popup" class="close-btn">×</button>
     <h2 class="popup-title">Formulario de Axuda</h2>
-    <p class="popup-info">
-      A súa consulta será respondida nun prazo máximo de 24 horas.
+    <p style="font-size:0.9em; color:#555; margin-bottom:15px;">
+      A súa consulta será respondida nun prazo máximo de 48 horas.
     </p>
 
-    <!-- FORMULARIO -->
-    <form id="help-form">
+    <form id="help-form" action="https://formspree.io/f/xjkneqpd" method="POST">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" required>
@@ -844,9 +843,9 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       <button type="submit" class="submit-btn">Enviar</button>
     </form>
 
-    <!-- MENSAJE DE ÉXITO -->
-    <div id="form-success">
-      Mensaxe enviada correctamente!
+    <!-- Mensaxe de éxito (oculto por defecto) -->
+    <div id="form-success" style="display:none; font-size: 1em; color: green; margin-top: 15px;">
+      Mensaxe enviada correctamente. Grazas!
     </div>
   </div>
 </div>
@@ -968,20 +967,18 @@ helpPopup.addEventListener("click", (e) => {
 
 // Enviar formulario via fetch sen redirixir
 helpForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Previr envio por defecto
+    e.preventDefault(); // Previr envío por defecto
 
     const formData = new FormData(helpForm);
 
     fetch("https://formspree.io/f/xjkneqpd", {
         method: "POST",
         body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
     })
     .then(response => {
         if (response.ok) {
-            // Ocultar formulario e mostrar mensaxe de éxito
+            // Mostrar mensaxe de éxito e manter botón igual
             helpForm.style.display = "none";
             formSuccess.style.display = "block";
         } else {
@@ -993,7 +990,6 @@ helpForm.addEventListener("submit", (e) => {
         console.error(error);
     });
 });
-
   
 </script>
 
