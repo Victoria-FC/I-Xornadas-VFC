@@ -336,35 +336,34 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
   align-items: center;
   justify-content: center;
   opacity: 0;           /* Invisible por defecto */
-  visibility: hidden;   /* Oculto por defecto */
+  visibility: hidden;    /* Oculto por defecto */
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
 
-/* POPUP VISIBLE */
+/* POPUP VISÍBEL */
 #help-popup.active {
-  opacity: 1;
+  opacity: 1;            /* Visible cando se engade a clase active */
   visibility: visible;
 }
 
-/* CONTENIDO DEL POPUP */
+/* CONTIDO DO POPUP */
 .popup-content {
-  position: relative;           /* Necesario para el botón de cerrar */
   background: #fff;
   padding: 2rem;
   border-radius: 10px;
   width: 90%;
   max-width: 400px;
-  transform: scale(0.9);        /* Efecto de zoom inicial */
+  transform: scale(0.9);          /* Pequeno efecto de zoom inicial */
   transition: transform 0.3s ease;
 }
 
-/* Zoom cuando está activo */
+/* Efecto de zoom cando está activo */
 #help-popup.active .popup-content {
   transform: scale(1);
 }
 
-/* BOTÓN CERRAR */
+/* BOTON CERRAR */
 .close-btn {
   position: absolute;
   top: 12px;
@@ -376,7 +375,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
   color: #333;
 }
 
-/* TÍTULO */
+/* TITULO */
 .popup-title {
   font-size: 20px;
   margin-bottom: 20px;
@@ -409,13 +408,13 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #4CAF50; /* color principal de los poñentes */
+  border-color: #4CAF50; /* cor principal dos poñentes */
   outline: none;
 }
 
-/* BOTÓN ENVIAR */
+/* BOTON ENVIAR */
 .submit-btn {
-  background: #900;
+  background: #900; /* cor principal */
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -429,15 +428,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
   background: #45a049;
 }
 
-/* MENSAJE DE AGRADECIMIENTO */
-#thank-you {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: #111;
-  margin-top: 20px;
-}
-
+  
 </style>
 </head>
 <body>
@@ -894,26 +885,26 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 <div id="help-btn">?</div>
 
 <!-- POPUP AXUDA -->
-<div id="help-popup" class="popup hidden">
+<div id="help-popup" class="hidden">
   <div class="popup-content">
-    <button id="close-help-popup" class="close-btn">X</button>
-    <form id="help-form" action="https://formspree.io/f/tu_form_id" method="POST">
-      <label for="name">Nombre:</label>
-      <input type="text" name="name" id="name" required>
-
-      <label for="email">Correo:</label>
-      <input type="email" name="email" id="email" required>
-
-      <label for="message">Mensaje:</label>
-      <textarea name="message" id="message" rows="4" required></textarea>
-
-      <button type="submit">Enviar</button>
+    <button id="close-help-popup" class="close-btn">×</button>
+    <h2 class="popup-title">Formulario de Axuda</h2>
+    <form id="help-form" action="https://formspree.io/f/XXXXXXX" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome e apelidos</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="mensaxe">Mensaxe</label>
+        <textarea id="mensaxe" name="mensaxe" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Enviar</button>
     </form>
-    <div id="thank-you" class="hidden">
-      <p>¡Gracias por tu mensaje!</p>
-    </div>
   </div>
-</div>
 
 <!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
@@ -1009,41 +1000,27 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
 const helpBtn = document.getElementById("help-btn");
 const helpPopup = document.getElementById("help-popup");
 const closePopup = document.getElementById("close-help-popup");
-const helpForm = document.getElementById("help-form");
-const thankYou = document.getElementById("thank-you");
 
-// Abrir popup
+// Abrir popup ao premer o botón
 helpBtn.addEventListener("click", () => {
-    helpPopup.classList.add("active");
-    helpForm.classList.remove("hidden");
-    thankYou.classList.add("hidden");
+    helpPopup.classList.remove("hidden");
+    helpPopup.style.display = "flex";
 });
 
-// Cerrar popup al clicar en X o fuera
-closePopup.addEventListener("click", () => helpPopup.classList.remove("active"));
+// Pechar popup ao clicar na X
+closePopup.addEventListener("click", () => {
+    helpPopup.classList.add("hidden");
+    helpPopup.style.display = "none";
+});
+
+// Pechar popup ao clicar fóra do contido
 helpPopup.addEventListener("click", (e) => {
-    if(e.target === helpPopup) helpPopup.classList.remove("active");
-});
-
-// Enviar formulario sin redirigir
-helpForm.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Evita la redirección
-    const formData = new FormData(helpForm);
-    
-    const response = await fetch(helpForm.action, {
-        method: helpForm.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if(response.ok){
-        helpForm.classList.add("hidden");
-        thankYou.classList.remove("hidden");
-    } else {
-        alert("Ups, hubo un error. Intenta de nuevo.");
+    if (e.target === helpPopup) {
+        helpPopup.classList.add("hidden");
+        helpPopup.style.display = "none";
     }
 });
-
+  
 </script>
 
 </body>
