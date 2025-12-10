@@ -931,29 +931,28 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
 btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
 btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
 
-document.addEventListener("DOMContentLoaded", () => {
+const helpBtn = document.getElementById("help-btn");
+const helpPopup = document.getElementById("help-popup");
+const closePopup = document.getElementById("close-help-popup");
 
-    const helpBtn = document.getElementById("help-btn");
-    const helpPopup = document.getElementById("help-popup");
-    const closePopup = document.getElementById("close-help-popup");
+// Abrir popup ao premer o botón
+helpBtn.addEventListener("click", () => {
+    helpPopup.classList.remove("hidden");
+    helpPopup.style.display = "flex";
+});
 
-    // Abrir popup
-    helpBtn.addEventListener("click", () => {
-        helpPopup.classList.remove("hidden");
-    });
+// Pechar popup ao clicar na X
+closePopup.addEventListener("click", () => {
+    helpPopup.classList.add("hidden");
+    helpPopup.style.display = "none";
+});
 
-    // Cerrar popup al pulsar X
-    closePopup.addEventListener("click", () => {
+// Pechar popup ao clicar fóra do contido
+helpPopup.addEventListener("click", (e) => {
+    if (e.target === helpPopup) {
         helpPopup.classList.add("hidden");
-    });
-
-    // Cerrar popup al clicar fuera
-    helpPopup.addEventListener("click", (e) => {
-        if (e.target === helpPopup) {
-            helpPopup.classList.add("hidden");
-        }
-    });
-
+        helpPopup.style.display = "none";
+    }
 });
   
 </script>
