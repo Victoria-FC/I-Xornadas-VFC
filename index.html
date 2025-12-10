@@ -966,31 +966,36 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
 btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
 btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
 
-const helpBtn = document.getElementById('help-btn');
-  const helpPopup = document.getElementById('help-popup');
-  const closePopupBtn = document.getElementById('close-popup');
-  const helpForm = document.getElementById('help-form');
+document.addEventListener("DOMContentLoaded", () => {
 
-  // Abrir popup
-  helpBtn.addEventListener('click', () => {
-    helpPopup.classList.remove('hidden');
-    document.body.classList.add('popup-active');
-  });
+    const helpBtn = document.getElementById("help-btn");
+    const contactPopup = document.getElementById("contact-popup");
+    const closePopup = document.getElementById("close-popup");
 
-  // Cerrar popup
-  closePopupBtn.addEventListener('click', () => {
-    helpPopup.classList.add('hidden');
-    document.body.classList.remove('popup-active');
-  });
+    if (!helpBtn || !contactPopup || !closePopup) {
+        console.error("Faltan elementos del popup en el DOM");
+        return;
+    }
 
-  // Enviar formulario
-  helpForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // evita recargar la página
-    alert('Formulario enviado correctamente');
-    helpPopup.classList.add('hidden');
-    document.body.classList.remove('popup-active');
-    helpForm.reset(); // limpia los campos
-  });
+    // Abrir popup
+    helpBtn.addEventListener("click", () => {
+        contactPopup.classList.remove("hidden");
+    });
+
+    // Cerrar popup
+    closePopup.addEventListener("click", () => {
+        contactPopup.classList.add("hidden");
+    });
+
+    // Cerrar haciendo clic fuera del cuadro
+    contactPopup.addEventListener("click", (e) => {
+        if (e.target === contactPopup) {
+            contactPopup.classList.add("hidden");
+        }
+    });
+
+});
+
   
 </script>
 
