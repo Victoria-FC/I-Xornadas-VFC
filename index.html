@@ -314,7 +314,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     right: 25px;
     width: 55px;
     height: 55px;
-    background-color: #860A35;
+    background-color: #900;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -326,27 +326,41 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* FUNDO DO POPUP */
+/* POPUP FONDO */
 #help-popup {
   position: fixed;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  opacity: 0;           /* Invisible por defecto */
+  visibility: hidden;    /* Oculto por defecto */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
 
-/* CONTEDOR INTERNO (igual aos poñentes) */
+/* POPUP VISÍBEL */
+#help-popup.active {
+  opacity: 1;            /* Visible cando se engade a clase active */
+  visibility: visible;
+}
+
+/* CONTIDO DO POPUP */
 .popup-content {
-  background: #fff; /* fondo dos poñentes */
-  border-radius: 12px;
-  padding: 25px 30px;
-  max-width: 420px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
   width: 90%;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  font-family: 'Inter', sans-serif; /* mesma tipografía */
-  position: relative;
+  max-width: 400px;
+  transform: scale(0.9);          /* Pequeno efecto de zoom inicial */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de zoom cando está activo */
+#help-popup.active .popup-content {
+  transform: scale(1);
 }
 
 /* BOTON CERRAR */
@@ -400,7 +414,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 
 /* BOTON ENVIAR */
 .submit-btn {
-  background: #4CAF50; /* cor principal */
+  background: #900; /* cor principal */
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -876,26 +890,21 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     <button id="close-help-popup" class="close-btn">×</button>
     <h2 class="popup-title">Formulario de Axuda</h2>
     <form id="help-form" action="https://formspree.io/f/XXXXXXX" method="POST">
-
       <div class="form-group">
-        <label for="nome">Nome</label>
+        <label for="nome">Nome e apelidos</label>
         <input type="text" id="nome" name="nome" required>
       </div>
-
       <div class="form-group">
-        <label for="email">Correo</label>
+        <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" required>
       </div>
-
       <div class="form-group">
         <label for="mensaxe">Mensaxe</label>
         <textarea id="mensaxe" name="mensaxe" rows="4" required></textarea>
       </div>
-
       <button type="submit" class="submit-btn">Enviar</button>
     </form>
   </div>
-</div>
 
 <!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
