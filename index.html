@@ -308,21 +308,59 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 }
 
 /* Botón flotante */ 
-  #help-btn { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background-color: #900; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); } 
-  /* POPUP FONDO */ 
-  #help-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; opacity: 0; /* Invisible por defecto */ visibility: hidden; /* Oculto por defecto */ transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 1000; } 
-  /* POPUP VISÍBEL */ 
-  #help-popup.active { opacity: 1; /* Visible cando se engade a clase active */ visibility: visible; } 
-  /* CONTIDO DO POPUP */ 
-  .popup-content { background: #fff; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px; transform: scale(0.9); /* Pequeno efecto de zoom inicial */ transition: transform 0.3s ease; } /* Efecto de zoom cando está activo */ #help-popup.active .popup-content { transform: scale(1); } 
-  /* BOTON CERRAR */ 
-  .close-btn { position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 22px; cursor: pointer; color: #333; } 
-  /* TITULO */ 
-  .popup-title { font-size: 20px; margin-bottom: 20px; font-weight: 600; color: #111; } 
-  /* GRUPO DE FORMULARIO */ 
-  .form-group { margin-bottom: 16px; } .form-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #222; } .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; box-sizing: border-box; transition: border 0.2s; } .form-group input:focus, .form-group textarea:focus { border-color: #4CAF50; /* cor principal dos poñentes */ outline: none; } 
-  /* BOTON ENVIAR */ 
-  .submit-btn { background: #900; /* cor principal */ color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: background 0.2s; } .submit-btn:hover { background: #45a049; }
+#help-btn { 
+  position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; 
+  background-color: #900; color: white; border-radius: 50%; 
+  display: flex; align-items: center; justify-content: center; 
+  font-size: 28px; cursor: pointer; z-index: 999; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+} 
+
+/* POPUP FONDO */ 
+#help-popup { 
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+  background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; 
+  opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 1000; 
+} 
+
+/* POPUP VISIBLE */ 
+#help-popup.active { 
+  opacity: 1; visibility: visible; 
+} 
+
+/* CONTIDO DO POPUP */ 
+.popup-content { 
+  background: #fff; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px; 
+  transform: scale(0.9); transition: transform 0.3s ease; position: relative;
+} 
+
+#help-popup.active .popup-content { 
+  transform: scale(1); 
+} 
+
+/* BOTON CERRAR */ 
+.close-btn { 
+  position: absolute; top: 12px; right: 12px; background: transparent; border: none; 
+  font-size: 22px; cursor: pointer; color: #333; 
+} 
+
+/* TITULO */ 
+.popup-title { 
+  font-size: 20px; margin-bottom: 10px; font-weight: 600; color: #111; 
+} 
+
+/* TEXTO DE INFORMACIÓN */
+.popup-info { 
+  font-size: 0.9em; color: #555; margin-bottom: 15px; 
+}
+
+/* GRUPO DE FORMULARIO */ 
+.form-group { margin-bottom: 16px; } 
+.form-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #222; } 
+.form-group input, .form-group textarea { 
+  width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; box-sizing: border-box; transition: border 0.2s; 
+} 
+.form-group input:focus,
 
   
 </style>
@@ -781,14 +819,16 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 <div id="help-btn">?</div>
 
 <!-- POPUP AXUDA -->
-<div id="help-popup" class="hidden">
+<div id="help-popup">
   <div class="popup-content">
     <button id="close-help-popup" class="close-btn">×</button>
     <h2 class="popup-title">Formulario de Axuda</h2>
-    <p style="font-size:0.9em; color:#555; margin-bottom:15px;">
-      A súa consulta será respondida nun prazo máximo de 48 horas.
+    <p class="popup-info">
+      A súa consulta será respondida nun prazo máximo de 24 horas.
     </p>
-    <form id="help-form" action="https://formspree.io/f/xjkneqpd" method="POST">
+
+    <!-- FORMULARIO -->
+    <form id="help-form">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" required>
@@ -803,8 +843,14 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </div>
       <button type="submit" class="submit-btn">Enviar</button>
     </form>
+
+    <!-- MENSAJE DE ÉXITO -->
+    <div id="form-success">
+      Mensaxe enviada correctamente!
+    </div>
   </div>
 </div>
+
 
 <!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
@@ -900,6 +946,8 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
 const helpBtn = document.getElementById("help-btn");
 const helpPopup = document.getElementById("help-popup");
 const closePopup = document.getElementById("close-help-popup");
+const helpForm = document.getElementById("help-form");
+const formSuccess = document.getElementById("form-success");
 
 // Abrir popup ao premer o botón
 helpBtn.addEventListener("click", () => {
@@ -917,6 +965,35 @@ helpPopup.addEventListener("click", (e) => {
         helpPopup.classList.remove("active");
     }
 });
+
+// Enviar formulario via fetch sen redirixir
+helpForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Previr envio por defecto
+
+    const formData = new FormData(helpForm);
+
+    fetch("https://formspree.io/f/xjkneqpd", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Ocultar formulario e mostrar mensaxe de éxito
+            helpForm.style.display = "none";
+            formSuccess.style.display = "block";
+        } else {
+            alert("Ocorreu un erro. Por favor, inténtao de novo.");
+        }
+    })
+    .catch(error => {
+        alert("Ocorreu un erro. Por favor, inténtao de novo.");
+        console.error(error);
+    });
+});
+
   
 </script>
 
