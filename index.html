@@ -787,11 +787,11 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     <h2 class="popup-title">Formulario de Axuda</h2>
     <form id="help-form" action="https://formspree.io/f/XXXXXXX" method="POST">
       <div class="form-group">
-        <label for="nome">Nome e apelidos</label>
+        <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" required>
       </div>
       <div class="form-group">
-        <label for="email">Correo electrónico</label>
+        <label for="email">Correo</label>
         <input type="email" id="email" name="email" required>
       </div>
       <div class="form-group">
@@ -801,6 +801,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       <button type="submit" class="submit-btn">Enviar</button>
     </form>
   </div>
+</div>
 
 <!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
@@ -899,21 +900,18 @@ const closePopup = document.getElementById("close-help-popup");
 
 // Abrir popup ao premer o botón
 helpBtn.addEventListener("click", () => {
-    helpPopup.classList.remove("hidden");
-    helpPopup.style.display = "flex";
+    helpPopup.classList.add("active");
 });
 
 // Pechar popup ao clicar na X
 closePopup.addEventListener("click", () => {
-    helpPopup.classList.add("hidden");
-    helpPopup.style.display = "none";
+    helpPopup.classList.remove("active");
 });
 
 // Pechar popup ao clicar fóra do contido
 helpPopup.addEventListener("click", (e) => {
     if (e.target === helpPopup) {
-        helpPopup.classList.add("hidden");
-        helpPopup.style.display = "none";
+        helpPopup.classList.remove("active");
     }
 });
   
