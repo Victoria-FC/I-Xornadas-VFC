@@ -1003,21 +1003,18 @@ const closePopup = document.getElementById("close-help-popup");
 
 // Abrir popup ao premer o botón
 helpBtn.addEventListener("click", () => {
-    helpPopup.classList.remove("hidden");
-    helpPopup.style.display = "flex";
+    helpPopup.classList.add("active");
 });
 
 // Pechar popup ao clicar na X
 closePopup.addEventListener("click", () => {
-    helpPopup.classList.add("hidden");
-    helpPopup.style.display = "none";
+    helpPopup.classList.remove("active");
 });
 
 // Pechar popup ao clicar fóra do contido
 helpPopup.addEventListener("click", (e) => {
     if (e.target === helpPopup) {
-        helpPopup.classList.add("hidden");
-        helpPopup.style.display = "none";
+        helpPopup.classList.remove("active");
     }
 });
   
