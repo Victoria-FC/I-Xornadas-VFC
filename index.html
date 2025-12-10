@@ -322,16 +322,11 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     justify-content: center;
     font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 999;
-    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-#help-btn:hover {
-    background-color: #A50D42;
-}
-
-/* Fondo del popup */
+/* Fondo popup */
 #help-popup {
     position: fixed;
     top: 0;
@@ -349,7 +344,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     display: none;
 }
 
-/* Ventana del popup */
+/* Contenido ventana */
 .popup-content {
     background: white;
     padding: 30px;
@@ -367,38 +362,6 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     font-size: 28px;
     cursor: pointer;
 }
-
-/* Formulario */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-}
-
-.contact-form button {
-    background-color: #860A35;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.contact-form button:hover {
-    background-color: #A50D42;
-}
-
   
 </style>
 </head>
@@ -859,7 +822,6 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 <div id="help-popup" class="hidden">
   <div class="popup-content">
     <span id="close-help-popup">&times;</span>
-
     <h2>¿Necesitas axuda?</h2>
 
     <form action="https://formspree.io/f/xjkneqpd" method="POST" class="contact-form">
@@ -876,6 +838,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     </form>
   </div>
 </div>
+
 
 <!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
@@ -979,12 +942,12 @@ document.addEventListener("DOMContentLoaded", () => {
         helpPopup.classList.remove("hidden");
     });
 
-    // Cerrar popup
+    // Cerrar popup al pulsar X
     closePopup.addEventListener("click", () => {
         helpPopup.classList.add("hidden");
     });
 
-    // Cerrar al clicar fora
+    // Cerrar popup al clicar fuera
     helpPopup.addEventListener("click", (e) => {
         if (e.target === helpPopup) {
             helpPopup.classList.add("hidden");
@@ -992,7 +955,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
   
 </script>
 
