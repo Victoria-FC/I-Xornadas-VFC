@@ -362,6 +362,11 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 } 
 .form-group input:focus,
 
+/* BOTON ENVIAR */ 
+.submit-btn { background: #900; /* cor principal */ 
+             color: #fff; border: none; padding: 10px 20px; border-radius: 8px; 
+             font-size: 14px; cursor: pointer; transition: background 0.2s; } 
+.submit-btn:hover { background: #45a049; }
   
 </style>
 </head>
@@ -824,7 +829,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     <button id="close-help-popup" class="close-btn">×</button>
     <h2 class="popup-title">Formulario de Axuda</h2>
     <p style="font-size:0.9em; color:#555; margin-bottom:15px;">
-      A súa consulta será respondida nun prazo máximo de 48 horas.
+      A súa consulta será respondida nun prazo máximo de 24 horas.
     </p>
 
     <form id="help-form" action="https://formspree.io/f/xjkneqpd" method="POST">
