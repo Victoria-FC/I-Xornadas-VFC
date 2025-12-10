@@ -230,8 +230,8 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 .social-icons img:hover { transform:scale(1.2); }
 
 /* ---------------------- BOTÓN VOLVER ARRIBA ---------------------- */
-#topBtn { position:fixed; right:25px; bottom:25px; background:#900; color:white; padding:14px 18px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 0 18px rgba(0,0,0,0.5); display:none; transition:0.3s; z-index:999; }
-#topBtn:hover { background:#900; }
+/*#topBtn { position:fixed; right:25px; bottom:25px; background:#900; color:white; padding:14px 18px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 0 18px rgba(0,0,0,0.5); display:none; transition:0.3s; z-index:999; }
+#topBtn:hover { background:#900; }*/
 
 /* ---------------------- MODAL ---------------------- */
 .modal {
@@ -849,7 +849,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 </footer>
 
 <!-- BOTÓN VOLVER ARRIBA -->
-<div id="topBtn" aria-label="Volver arriba">↑</div>
+<!-- <div id="topBtn" aria-label="Volver arriba">↑</div> -->
 
 <!-- BOTÓN DE AXUDA -->
 <div id="help-btn">?</div>
@@ -904,11 +904,11 @@ sections.forEach(section => observer.observe(section));
 heroCards.forEach(card => observer.observe(card));
 
 // ================== TOP BUTTON ==================
-const topBtn = document.getElementById("topBtn");
-window.addEventListener('scroll', () => {
-  topBtn.style.display = window.scrollY > 400 ? "block" : "none";
-});
-topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
+// const topBtn = document.getElementById("topBtn");
+// window.addEventListener('scroll', () => {
+//   topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+// });
+// topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
 
 // ================== PONENTES ==================
 const modal = document.getElementById('modal');
