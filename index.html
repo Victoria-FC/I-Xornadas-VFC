@@ -369,6 +369,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 .submit-btn:hover { background: #45a049; }
 
 /* POPUP BLOQUEO INSCRICIÓN */
+/*  
 #popup-inscricion {
   position: fixed;
   top: 0; left: 0;
@@ -403,6 +404,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 #popup-inscricion.active .popup-inscricion-content {
   transform: scale(1);
 }  
+*/  
   
 </style>
 </head>
@@ -435,7 +437,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </div>
     </div>
 
-    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
+    <a class="registro-button" href="https://www.victoriafutbolclub.com/gl/registrations/23679?value=false" target="_blank">Inscribirme</a>
   </div>
 </header>
 
@@ -851,7 +853,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     Podes inscribirte pulsando no seguinte botón.
   </p>
 
-  <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">
+  <a class="registro-button" href="https://www.victoriafutbolclub.com/gl/registrations/23679?value=false" target="_blank">
     Inscribirme ás Xornadas
   </a>
 </section>
@@ -886,6 +888,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 </footer>
 
 <!-- POPUP INSCRICIÓN NON DISPOÑIBLE -->
+<!--  
 <div id="popup-inscricion" class="popup-hidden">
   <div class="popup-inscricion-content">
       <button id="close-popup-inscricion" class="close-btn">×</button>
@@ -898,7 +901,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
       </p>
   </div>
 </div>
-  
+-->  
 
 <!-- BOTÓN VOLVER ARRIBA -->
 <!-- <div id="topBtn" aria-label="Volver arriba">↑</div> -->
@@ -1082,30 +1085,30 @@ helpForm.addEventListener("submit", (e) => {
 // ==================== POPUP INSCRICIÓN NON DISPOÑIBLE ====================
 
 // Detectar todos os botóns de inscrición
-const rexistroButtons = document.querySelectorAll(".registro-button");
+//const rexistroButtons = document.querySelectorAll(".registro-button");
 
-const popupInscricion = document.getElementById("popup-inscricion");
-const closePopupInscricion = document.getElementById("close-popup-inscricion");
+//const popupInscricion = document.getElementById("popup-inscricion");
+//const closePopupInscricion = document.getElementById("close-popup-inscricion");
 
 // Abrir popup ao premer o botón de inscrición
-rexistroButtons.forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault(); // Evita abrir o link
-    popupInscricion.classList.add("active");
-  });
-});
+//rexistroButtons.forEach(btn => {
+//  btn.addEventListener("click", (e) => {
+//    e.preventDefault(); // Evita abrir o link
+//    popupInscricion.classList.add("active");
+//  });
+//});
 
 // Pechar popup coa X
-closePopupInscricion.addEventListener("click", () => {
-  popupInscricion.classList.remove("active");
-});
+//closePopupInscricion.addEventListener("click", () => {
+//  popupInscricion.classList.remove("active");
+//});
 
 // Pechar facendo click fora do contido
-popupInscricion.addEventListener("click", (e) => {
-  if (e.target === popupInscricion) {
-    popupInscricion.classList.remove("active");
-  }
-});  
+//popupInscricion.addEventListener("click", (e) => {
+//  if (e.target === popupInscricion) {
+//    popupInscricion.classList.remove("active");
+//  }
+//});  
   
 </script>
 
