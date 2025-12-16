@@ -1030,8 +1030,8 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
   });
 }
 
-//btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
-//btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
+btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
+btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
 
 const helpBtn = document.getElementById("help-btn");
 const helpPopup = document.getElementById("help-popup");
